@@ -54,7 +54,8 @@ email or Facebook, login  email or Facebook and logout.</p>
 <p>It is also responsible of assigning new API access tokens  the credentials of
 the already authenticated user.</p>
 <!-- START_fde36329ab58ad5d6ab50b7704de548b -->
-<h2>/api/token</h2>
+<h2>User details.</h2>
+<p>This will return the currently logged in user's details.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -82,17 +83,23 @@ $.ajax(settings).done(function (response) {
 <p><code>HEAD /api/token</code></p>
 <!-- END_fde36329ab58ad5d6ab50b7704de548b -->
 <!-- START_39798dab89951f0e0c3fc59a53f859e5 -->
-<h2>This will logout the user.</h2>
+<h2>Logout the user.</h2>
+<p>Will logout the logged in user and close the session.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST "http://localhost//api/logout" \
--H "Accept: application/json"</code></pre>
+-H "Accept: application/json" \
+    -d "token"="distinctio" \
+</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
     "url": "http://localhost//api/logout",
     "method": "POST",
+    "data": {
+        "token": "distinctio"
+},
     "headers": {
         "accept": "application/json"
     }
@@ -103,9 +110,28 @@ $.ajax(settings).done(function (response) {
 });</code></pre>
 <h3>HTTP Request</h3>
 <p><code>POST /api/logout</code></p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>required</td>
+</tr>
+</tbody>
+</table>
 <!-- END_39798dab89951f0e0c3fc59a53f859e5 -->
 <!-- START_0f8ecc008bbceb798251c0de85808ef8 -->
-<h2>This will register a new user with an email and password.</h2>
+<h2>Register with email and password.</h2>
+<p>Will register the user with an email and password.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -167,19 +193,81 @@ $.ajax(settings).done(function (response) {
 </tbody>
 </table>
 <!-- END_0f8ecc008bbceb798251c0de85808ef8 -->
+<!-- START_7a55f4d36791d87bfc8b6c280f210886 -->
+<h2>Register with Facebook</h2>
+<p>Will register a user using their Facebook ID.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost//api/register_fb" \
+-H "Accept: application/json" \
+    -d "name"="vero" \
+    -d "fb_id"="vero" \
+</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost//api/register_fb",
+    "method": "POST",
+    "data": {
+        "name": "vero",
+        "fb_id": "vero"
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /api/register_fb</code></p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>required</td>
+<td>Maximum: <code>255</code></td>
+</tr>
+<tr>
+<td>fb_id</td>
+<td>string</td>
+<td>required</td>
+</tr>
+</tbody>
+</table>
+<!-- END_7a55f4d36791d87bfc8b6c280f210886 -->
 <!-- START_d5417ec5d425f04b71e9a4e9987c8295 -->
-<h2>Will authenticate the user given the email and password</h2>
-<p>and will return the new user token.</p>
+<h2>Login with email and password.</h2>
+<p>Will login a user with their email and password.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST "http://localhost//api/authenticate" \
--H "Accept: application/json"</code></pre>
+-H "Accept: application/json" \
+    -d "email"="rossie62@example.org" \
+    -d "password"="cupiditate" \
+</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
     "url": "http://localhost//api/authenticate",
     "method": "POST",
+    "data": {
+        "email": "rossie62@example.org",
+        "password": "cupiditate"
+},
     "headers": {
         "accept": "application/json"
     }
@@ -190,9 +278,87 @@ $.ajax(settings).done(function (response) {
 });</code></pre>
 <h3>HTTP Request</h3>
 <p><code>POST /api/authenticate</code></p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>email</td>
+<td>email</td>
+<td>required</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>required</td>
+</tr>
+</tbody>
+</table>
 <!-- END_d5417ec5d425f04b71e9a4e9987c8295 -->
+<!-- START_20b8511ea671420c2e7a7220a7a5ecdc -->
+<h2>Login with Facebook ID.</h2>
+<p>Will login a user with their Facebook ID.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost//api/authenticate_fb" \
+-H "Accept: application/json" \
+    -d "email"="runolfsson.ima@example.org" \
+    -d "password"="et" \
+</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost//api/authenticate_fb",
+    "method": "POST",
+    "data": {
+        "email": "runolfsson.ima@example.org",
+        "password": "et"
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /api/authenticate_fb</code></p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>email</td>
+<td>email</td>
+<td>required</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>required</td>
+</tr>
+</tbody>
+</table>
+<!-- END_20b8511ea671420c2e7a7220a7a5ecdc -->
 <!-- START_a5d7bfde9c5e33e7c8fd6f07a11939b5 -->
-<h2>/api/authenticated_user</h2>
+<h2>Get authenticated user</h2>
+<p>Returns the details of the currently logged in user.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>

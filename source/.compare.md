@@ -27,7 +27,9 @@ email or Facebook, login  email or Facebook and logout.
 It is also responsible of assigning new API access tokens  the credentials of
 the already authenticated user.
 <!-- START_fde36329ab58ad5d6ab50b7704de548b -->
-## /api/token
+## User details.
+
+This will return the currently logged in user's details.
 
 > Example request:
 
@@ -67,13 +69,17 @@ null
 <!-- END_fde36329ab58ad5d6ab50b7704de548b -->
 
 <!-- START_39798dab89951f0e0c3fc59a53f859e5 -->
-## This will logout the user.
+## Logout the user.
+
+Will logout the logged in user and close the session.
 
 > Example request:
 
 ```bash
 curl -X POST "http://localhost//api/logout" \
--H "Accept: application/json"
+-H "Accept: application/json" \
+    -d "token"="distinctio" \
+
 ```
 
 ```javascript
@@ -82,6 +88,9 @@ var settings = {
     "crossDomain": true,
     "url": "http://localhost//api/logout",
     "method": "POST",
+    "data": {
+        "token": "distinctio"
+},
     "headers": {
         "accept": "application/json"
     }
@@ -96,11 +105,18 @@ $.ajax(settings).done(function (response) {
 ### HTTP Request
 `POST /api/logout`
 
+#### Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    token | string |  required  | 
 
 <!-- END_39798dab89951f0e0c3fc59a53f859e5 -->
 
 <!-- START_0f8ecc008bbceb798251c0de85808ef8 -->
-## This will register a new user with an email and password.
+## Register with email and password.
+
+Will register the user with an email and password.
 
 > Example request:
 
@@ -148,15 +164,67 @@ Parameter | Type | Status | Description
 
 <!-- END_0f8ecc008bbceb798251c0de85808ef8 -->
 
+<!-- START_7a55f4d36791d87bfc8b6c280f210886 -->
+## Register with Facebook
+
+Will register a user using their Facebook ID.
+
+> Example request:
+
+```bash
+curl -X POST "http://localhost//api/register_fb" \
+-H "Accept: application/json" \
+    -d "name"="vero" \
+    -d "fb_id"="vero" \
+
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost//api/register_fb",
+    "method": "POST",
+    "data": {
+        "name": "vero",
+        "fb_id": "vero"
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST /api/register_fb`
+
+#### Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    name | string |  required  | Maximum: `255`
+    fb_id | string |  required  | 
+
+<!-- END_7a55f4d36791d87bfc8b6c280f210886 -->
+
 <!-- START_d5417ec5d425f04b71e9a4e9987c8295 -->
-## Will authenticate the user given the email and password
-and will return the new user token.
+## Login with email and password.
+
+Will login a user with their email and password.
 
 > Example request:
 
 ```bash
 curl -X POST "http://localhost//api/authenticate" \
--H "Accept: application/json"
+-H "Accept: application/json" \
+    -d "email"="rossie62@example.org" \
+    -d "password"="cupiditate" \
+
 ```
 
 ```javascript
@@ -165,6 +233,10 @@ var settings = {
     "crossDomain": true,
     "url": "http://localhost//api/authenticate",
     "method": "POST",
+    "data": {
+        "email": "rossie62@example.org",
+        "password": "cupiditate"
+},
     "headers": {
         "accept": "application/json"
     }
@@ -179,11 +251,67 @@ $.ajax(settings).done(function (response) {
 ### HTTP Request
 `POST /api/authenticate`
 
+#### Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    email | email |  required  | 
+    password | string |  required  | 
 
 <!-- END_d5417ec5d425f04b71e9a4e9987c8295 -->
 
+<!-- START_20b8511ea671420c2e7a7220a7a5ecdc -->
+## Login with Facebook ID.
+
+Will login a user with their Facebook ID.
+
+> Example request:
+
+```bash
+curl -X POST "http://localhost//api/authenticate_fb" \
+-H "Accept: application/json" \
+    -d "email"="runolfsson.ima@example.org" \
+    -d "password"="et" \
+
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost//api/authenticate_fb",
+    "method": "POST",
+    "data": {
+        "email": "runolfsson.ima@example.org",
+        "password": "et"
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST /api/authenticate_fb`
+
+#### Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    email | email |  required  | 
+    password | string |  required  | 
+
+<!-- END_20b8511ea671420c2e7a7220a7a5ecdc -->
+
 <!-- START_a5d7bfde9c5e33e7c8fd6f07a11939b5 -->
-## /api/authenticated_user
+## Get authenticated user
+
+Returns the details of the currently logged in user.
 
 > Example request:
 
