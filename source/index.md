@@ -67,7 +67,7 @@ null
 <!-- END_fde36329ab58ad5d6ab50b7704de548b -->
 
 <!-- START_39798dab89951f0e0c3fc59a53f859e5 -->
-## /api/logout
+## This will logout the user.
 
 > Example request:
 
@@ -100,7 +100,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_39798dab89951f0e0c3fc59a53f859e5 -->
 
 <!-- START_0f8ecc008bbceb798251c0de85808ef8 -->
-## /api/register
+## This will register a new user with an email and password.
 
 > Example request:
 
@@ -149,7 +149,8 @@ Parameter | Type | Status | Description
 <!-- END_0f8ecc008bbceb798251c0de85808ef8 -->
 
 <!-- START_d5417ec5d425f04b71e9a4e9987c8295 -->
-## /api/authenticate
+## Will authenticate the user given the email and password
+and will return the new user token.
 
 > Example request:
 
