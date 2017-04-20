@@ -48,108 +48,48 @@
 <p>Welcome to the generated API reference.
 <a href="http://localhost/docs/collection.json">Get Postman Collection</a></p>
 <!-- END_INFO -->
-<h1>Authentication</h1>
-<p>This module will handle all the user authentication  including registration with
-email or Facebook, login  email or Facebook and logout.</p>
-<p>It is also responsible of assigning new API access tokens  the credentials of
-the already authenticated user.</p>
-<!-- START_fde36329ab58ad5d6ab50b7704de548b -->
-<h2>User details.</h2>
-<p>This will return the currently logged in user's details.</p>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
-<pre><code class="language-bash">curl -X GET "http://localhost//api/token" \
--H "Accept: application/json"</code></pre>
-<pre><code class="language-javascript">var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://localhost//api/token",
-    "method": "GET",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});</code></pre>
-<blockquote>
-<p>Example response:</p>
-</blockquote>
-<pre><code class="language-json">null</code></pre>
-<h3>HTTP Request</h3>
-<p><code>GET /api/token</code></p>
-<p><code>HEAD /api/token</code></p>
-<!-- END_fde36329ab58ad5d6ab50b7704de548b -->
-<!-- START_39798dab89951f0e0c3fc59a53f859e5 -->
-<h2>Logout the user.</h2>
-<p>Will logout the logged in user and close the session.</p>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
-<pre><code class="language-bash">curl -X POST "http://localhost//api/logout" \
--H "Accept: application/json" \
-    -d "token"="distinctio" \
-</code></pre>
-<pre><code class="language-javascript">var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://localhost//api/logout",
-    "method": "POST",
-    "data": {
-        "token": "distinctio"
-},
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});</code></pre>
-<h3>HTTP Request</h3>
-<p><code>POST /api/logout</code></p>
-<h4>Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Status</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>token</td>
-<td>string</td>
-<td>required</td>
-</tr>
-</tbody>
-</table>
-<!-- END_39798dab89951f0e0c3fc59a53f859e5 -->
-<!-- START_0f8ecc008bbceb798251c0de85808ef8 -->
+<h1>User</h1>
+<p>This module will handle all the user manipulation including:</p>
+<ol>
+<li>Registration  - with Facebook or email and password.</li>
+<li>Authentication - with Facebook ID or email and password.</li>
+<li>User details - access to logged in user&#039;s details.</li>
+<li>Assigning tokens - will assign new API access tokens for
+an already logged in user.</li>
+</ol>
+<p>Note: for all the those routes marked with Auth Required,
+the following headers must be passed:</p>
+<ul>
+<li>&#039;Accept&#039; =&gt; &#039;application/json&#039;</li>
+<li>&#039;Authorization&#039; =&gt; &#039;Bearer &#039; + { logged in user&#039;s token }</li>
+</ul>
+<p>Please ensure you have the space after the &#039;Bearer &#039; value of the &#039;Authorization&#039;
+header e.g. &#039;Bearer eyJ0eXAiOiJKV1QiL...&#039;</p>
+<!-- START_9b706bcb7d78cfacbf8e5e3e7d8afe2b -->
 <h2>Register with email and password.</h2>
 <p>Will register the user with an email and password.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://localhost//api/register" \
+<pre><code class="language-bash">curl -X POST "http://localhost//api/user/register" \
 -H "Accept: application/json" \
-    -d "name"="voluptatem" \
-    -d "email"="damore.nestor@example.org" \
-    -d "password"="voluptatem" \
+    -d "name"="ab" \
+    -d "email"="ward.faye@example.com" \
+    -d "password_confirm"="ab" \
+    -d "password"="ab" \
+    -d "profile_pic"="ab" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost//api/register",
+    "url": "http://localhost//api/user/register",
     "method": "POST",
     "data": {
-        "name": "voluptatem",
-        "email": "damore.nestor@example.org",
-        "password": "voluptatem"
+        "name": "ab",
+        "email": "ward.faye@example.com",
+        "password_confirm": "ab",
+        "password": "ab",
+        "profile_pic": "ab"
 },
     "headers": {
         "accept": "application/json"
@@ -160,7 +100,7 @@ $.ajax(settings).done(function (response) {
     console.log(response);
 });</code></pre>
 <h3>HTTP Request</h3>
-<p><code>POST /api/register</code></p>
+<p><code>POST /api/user/register</code></p>
 <h4>Parameters</h4>
 <table>
 <thead>
@@ -185,33 +125,47 @@ $.ajax(settings).done(function (response) {
 <td>Maximum: <code>255</code></td>
 </tr>
 <tr>
+<td>password_confirm</td>
+<td>string</td>
+<td>required</td>
+<td>Minimum: <code>6</code></td>
+</tr>
+<tr>
 <td>password</td>
 <td>string</td>
 <td>required</td>
 <td>Minimum: <code>6</code></td>
 </tr>
+<tr>
+<td>profile_pic</td>
+<td>image</td>
+<td>optional</td>
+<td>Must be an image (jpeg, png, bmp, gif, or svg)</td>
+</tr>
 </tbody>
 </table>
-<!-- END_0f8ecc008bbceb798251c0de85808ef8 -->
-<!-- START_7a55f4d36791d87bfc8b6c280f210886 -->
+<!-- END_9b706bcb7d78cfacbf8e5e3e7d8afe2b -->
+<!-- START_5aa3d01db2b9d4c6a5d0d1ee7c426bd8 -->
 <h2>Register with Facebook</h2>
 <p>Will register a user using their Facebook ID.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://localhost//api/register_fb" \
+<pre><code class="language-bash">curl -X POST "http://localhost//api/user/register_fb" \
 -H "Accept: application/json" \
-    -d "name"="vero" \
-    -d "fb_id"="vero" \
+    -d "name"="id" \
+    -d "fb_id"="id" \
+    -d "profile_pic"="id" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost//api/register_fb",
+    "url": "http://localhost//api/user/register_fb",
     "method": "POST",
     "data": {
-        "name": "vero",
-        "fb_id": "vero"
+        "name": "id",
+        "fb_id": "id",
+        "profile_pic": "id"
 },
     "headers": {
         "accept": "application/json"
@@ -222,7 +176,7 @@ $.ajax(settings).done(function (response) {
     console.log(response);
 });</code></pre>
 <h3>HTTP Request</h3>
-<p><code>POST /api/register_fb</code></p>
+<p><code>POST /api/user/register_fb</code></p>
 <h4>Parameters</h4>
 <table>
 <thead>
@@ -245,28 +199,34 @@ $.ajax(settings).done(function (response) {
 <td>string</td>
 <td>required</td>
 </tr>
+<tr>
+<td>profile_pic</td>
+<td>image</td>
+<td>optional</td>
+<td>Must be an image (jpeg, png, bmp, gif, or svg)</td>
+</tr>
 </tbody>
 </table>
-<!-- END_7a55f4d36791d87bfc8b6c280f210886 -->
-<!-- START_d5417ec5d425f04b71e9a4e9987c8295 -->
+<!-- END_5aa3d01db2b9d4c6a5d0d1ee7c426bd8 -->
+<!-- START_96e41001d85ca072dc79e94397b6f2e3 -->
 <h2>Login with email and password.</h2>
 <p>Will login a user with their email and password.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://localhost//api/authenticate" \
+<pre><code class="language-bash">curl -X POST "http://localhost//api/user/login" \
 -H "Accept: application/json" \
-    -d "email"="rossie62@example.org" \
-    -d "password"="cupiditate" \
+    -d "email"="joanne.muller@example.com" \
+    -d "password"="ut" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost//api/authenticate",
+    "url": "http://localhost//api/user/login",
     "method": "POST",
     "data": {
-        "email": "rossie62@example.org",
-        "password": "cupiditate"
+        "email": "joanne.muller@example.com",
+        "password": "ut"
 },
     "headers": {
         "accept": "application/json"
@@ -277,7 +237,7 @@ $.ajax(settings).done(function (response) {
     console.log(response);
 });</code></pre>
 <h3>HTTP Request</h3>
-<p><code>POST /api/authenticate</code></p>
+<p><code>POST /api/user/login</code></p>
 <h4>Parameters</h4>
 <table>
 <thead>
@@ -301,26 +261,24 @@ $.ajax(settings).done(function (response) {
 </tr>
 </tbody>
 </table>
-<!-- END_d5417ec5d425f04b71e9a4e9987c8295 -->
-<!-- START_20b8511ea671420c2e7a7220a7a5ecdc -->
+<!-- END_96e41001d85ca072dc79e94397b6f2e3 -->
+<!-- START_5185b1c08ff9fc05d72653d65ed7ed67 -->
 <h2>Login with Facebook ID.</h2>
 <p>Will login a user with their Facebook ID.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://localhost//api/authenticate_fb" \
+<pre><code class="language-bash">curl -X POST "http://localhost//api/user/login_fb" \
 -H "Accept: application/json" \
-    -d "email"="runolfsson.ima@example.org" \
-    -d "password"="et" \
+    -d "fb_id"="sed" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost//api/authenticate_fb",
+    "url": "http://localhost//api/user/login_fb",
     "method": "POST",
     "data": {
-        "email": "runolfsson.ima@example.org",
-        "password": "et"
+        "fb_id": "sed"
 },
     "headers": {
         "accept": "application/json"
@@ -331,7 +289,7 @@ $.ajax(settings).done(function (response) {
     console.log(response);
 });</code></pre>
 <h3>HTTP Request</h3>
-<p><code>POST /api/authenticate_fb</code></p>
+<p><code>POST /api/user/login_fb</code></p>
 <h4>Parameters</h4>
 <table>
 <thead>
@@ -344,30 +302,26 @@ $.ajax(settings).done(function (response) {
 </thead>
 <tbody>
 <tr>
-<td>email</td>
-<td>email</td>
-<td>required</td>
-</tr>
-<tr>
-<td>password</td>
+<td>fb_id</td>
 <td>string</td>
 <td>required</td>
 </tr>
 </tbody>
 </table>
-<!-- END_20b8511ea671420c2e7a7220a7a5ecdc -->
-<!-- START_a5d7bfde9c5e33e7c8fd6f07a11939b5 -->
-<h2>Get authenticated user</h2>
-<p>Returns the details of the currently logged in user.</p>
+<!-- END_5185b1c08ff9fc05d72653d65ed7ed67 -->
+<!-- START_9c9260bd1ad91eb9aa21477f56d5ad8b -->
+<h2>User details.</h2>
+<p>Note: Auth Required</p>
+<p>Returns all the details of the currently logged in user.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET "http://localhost//api/authenticated_user" \
+<pre><code class="language-bash">curl -X GET "http://localhost//api/user/get" \
 -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost//api/authenticated_user",
+    "url": "http://localhost//api/user/get",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -382,9 +336,250 @@ $.ajax(settings).done(function (response) {
 </blockquote>
 <pre><code class="language-json">null</code></pre>
 <h3>HTTP Request</h3>
-<p><code>GET /api/authenticated_user</code></p>
-<p><code>HEAD /api/authenticated_user</code></p>
-<!-- END_a5d7bfde9c5e33e7c8fd6f07a11939b5 -->
+<p><code>GET /api/user/get</code></p>
+<p><code>HEAD /api/user/get</code></p>
+<!-- END_9c9260bd1ad91eb9aa21477f56d5ad8b -->
+<!-- START_25677b2fefca9a1f80499c00e4c4acf7 -->
+<h2>Refresh token</h2>
+<p>Note: Auth Required</p>
+<p>This will refresh current logged in users token</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET "http://localhost//api/user/refresh_token" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost//api/user/refresh_token",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">null</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /api/user/refresh_token</code></p>
+<p><code>HEAD /api/user/refresh_token</code></p>
+<!-- END_25677b2fefca9a1f80499c00e4c4acf7 -->
+<!-- START_99dabfc22a317a2385dee642272a537e -->
+<h2>Update user details.</h2>
+<p>Note: Auth Required.</p>
+<p>This will update the details of an already logged in user.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost//api/user/update" \
+-H "Accept: application/json" \
+    -d "token"="culpa" \
+    -d "name"="culpa" \
+    -d "profile_pic"="culpa" \
+</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost//api/user/update",
+    "method": "POST",
+    "data": {
+        "token": "culpa",
+        "name": "culpa",
+        "profile_pic": "culpa"
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /api/user/update</code></p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>required</td>
+<td>Maximum: <code>255</code></td>
+</tr>
+<tr>
+<td>profile_pic</td>
+<td>image</td>
+<td>optional</td>
+<td>Must be an image (jpeg, png, bmp, gif, or svg)</td>
+</tr>
+</tbody>
+</table>
+<!-- END_99dabfc22a317a2385dee642272a537e -->
+<!-- START_a93d6745597660d48aea8c2249b67600 -->
+<h2>Update user password</h2>
+<p>Note: Auth Required.</p>
+<p>This will update the password of an already logged in user. This user
+must have been registered using an email and password.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost//api/user/update_password" \
+-H "Accept: application/json" \
+    -d "token"="dicta" \
+    -d "old_password"="dicta" \
+    -d "password_confirm"="dicta" \
+    -d "password"="dicta" \
+</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost//api/user/update_password",
+    "method": "POST",
+    "data": {
+        "token": "dicta",
+        "old_password": "dicta",
+        "password_confirm": "dicta",
+        "password": "dicta"
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /api/user/update_password</code></p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td>old_password</td>
+<td>string</td>
+<td>required</td>
+<td>Minimum: <code>6</code></td>
+</tr>
+<tr>
+<td>password_confirm</td>
+<td>string</td>
+<td>required</td>
+<td>Minimum: <code>6</code></td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>required</td>
+<td>Minimum: <code>6</code></td>
+</tr>
+</tbody>
+</table>
+<!-- END_a93d6745597660d48aea8c2249b67600 -->
+<!-- START_8e2bcf97ca2b0da97a00d74ce5c0dddc -->
+<h2>Logout the user.</h2>
+<p>Note: Auth Required.</p>
+<p>Will logout the logged in user and close the session.
+The token is required.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost//api/user/logout" \
+-H "Accept: application/json" \
+    -d "token"="quia" \
+</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost//api/user/logout",
+    "method": "POST",
+    "data": {
+        "token": "quia"
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /api/user/logout</code></p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>required</td>
+</tr>
+</tbody>
+</table>
+<!-- END_8e2bcf97ca2b0da97a00d74ce5c0dddc -->
+<!-- START_901f22c468bb4f7946c10670b088ad93 -->
+<h2>Close user account.</h2>
+<p>Note: Auth Required.</p>
+<p>This will close the logged in user's account by soft deleting it.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost//api/user/close_account" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost//api/user/close_account",
+    "method": "POST",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /api/user/close_account</code></p>
+<!-- END_901f22c468bb4f7946c10670b088ad93 -->
       </div>
       <div class="dark-box">
                         <div class="lang-selector">
