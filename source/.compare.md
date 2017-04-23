@@ -43,7 +43,7 @@ Will register the user with an email and password.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost//api/user/register" \
+curl -X POST "http://i-doapp.com//api/user/register" \
 -H "Accept: application/json" \
     -d "name"="ab" \
     -d "email"="ward.faye@example.com" \
@@ -58,7 +58,7 @@ curl -X POST "http://localhost//api/user/register" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost//api/user/register",
+    "url": "http://i-doapp.com//api/user/register",
     "method": "POST",
     "data": {
         "name": "ab",
@@ -87,7 +87,7 @@ $.ajax(settings).done(function (response) {
 Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
     name | string |  required  | Maximum: `255`
-    email | email |  optional  | Maximum: `255`
+    email | email |  required  | Maximum: `255`
     password_confirm | string |  required  | Minimum: `6`
     password | string |  required  | Minimum: `6`
     gender | string |  required  | `male` or `female`
@@ -103,7 +103,7 @@ Will register a user using their Facebook ID.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost//api/user/register_fb" \
+curl -X POST "http://i-doapp.com//api/user/register_fb" \
 -H "Accept: application/json" \
     -d "name"="id" \
     -d "fb_id"="id" \
@@ -116,7 +116,7 @@ curl -X POST "http://localhost//api/user/register_fb" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost//api/user/register_fb",
+    "url": "http://i-doapp.com//api/user/register_fb",
     "method": "POST",
     "data": {
         "name": "id",
@@ -157,7 +157,7 @@ Will login a user with their email and password.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost//api/user/login" \
+curl -X POST "http://i-doapp.com//api/user/login" \
 -H "Accept: application/json" \
     -d "email"="joanne.muller@example.com" \
     -d "password"="ut" \
@@ -168,7 +168,7 @@ curl -X POST "http://localhost//api/user/login" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost//api/user/login",
+    "url": "http://i-doapp.com//api/user/login",
     "method": "POST",
     "data": {
         "email": "joanne.muller@example.com",
@@ -205,7 +205,7 @@ Will login a user with their Facebook ID.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost//api/user/login_fb" \
+curl -X POST "http://i-doapp.com//api/user/login_fb" \
 -H "Accept: application/json" \
     -d "fb_id"="sed" \
 
@@ -215,7 +215,7 @@ curl -X POST "http://localhost//api/user/login_fb" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost//api/user/login_fb",
+    "url": "http://i-doapp.com//api/user/login_fb",
     "method": "POST",
     "data": {
         "fb_id": "sed"
@@ -252,7 +252,7 @@ Returns all the details of the currently logged in user.
 > Example request:
 
 ```bash
-curl -X GET "http://localhost//api/user/get" \
+curl -X GET "http://i-doapp.com//api/user/get" \
 -H "Accept: application/json"
 ```
 
@@ -260,7 +260,7 @@ curl -X GET "http://localhost//api/user/get" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost//api/user/get",
+    "url": "http://i-doapp.com//api/user/get",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -296,7 +296,7 @@ This will refresh current logged in users token and return the new token
 > Example request:
 
 ```bash
-curl -X GET "http://localhost//api/user/refresh_token" \
+curl -X GET "http://i-doapp.com//api/user/refresh_token" \
 -H "Accept: application/json"
 ```
 
@@ -304,7 +304,7 @@ curl -X GET "http://localhost//api/user/refresh_token" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost//api/user/refresh_token",
+    "url": "http://i-doapp.com//api/user/refresh_token",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -340,7 +340,7 @@ This will update the details of an already logged in user.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost//api/user/update" \
+curl -X POST "http://i-doapp.com//api/user/update" \
 -H "Accept: application/json" \
     -d "name"="culpa" \
     -d "gender"="female" \
@@ -352,7 +352,7 @@ curl -X POST "http://localhost//api/user/update" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost//api/user/update",
+    "url": "http://i-doapp.com//api/user/update",
     "method": "POST",
     "data": {
         "name": "culpa",
@@ -394,7 +394,7 @@ must have been registered using an email and password.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost//api/user/update_password" \
+curl -X POST "http://i-doapp.com//api/user/update_password" \
 -H "Accept: application/json" \
     -d "old_password"="dicta" \
     -d "password_confirm"="dicta" \
@@ -406,7 +406,7 @@ curl -X POST "http://localhost//api/user/update_password" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost//api/user/update_password",
+    "url": "http://i-doapp.com//api/user/update_password",
     "method": "POST",
     "data": {
         "old_password": "dicta",
@@ -448,7 +448,7 @@ The token is required.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost//api/user/logout" \
+curl -X POST "http://i-doapp.com//api/user/logout" \
 -H "Accept: application/json" \
     -d "token"="quia" \
 
@@ -458,7 +458,7 @@ curl -X POST "http://localhost//api/user/logout" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost//api/user/logout",
+    "url": "http://i-doapp.com//api/user/logout",
     "method": "POST",
     "data": {
         "token": "quia"
@@ -495,7 +495,7 @@ This will close the logged in user's account by soft deleting it.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost//api/user/close_account" \
+curl -X POST "http://i-doapp.com//api/user/close_account" \
 -H "Accept: application/json"
 ```
 
@@ -503,7 +503,7 @@ curl -X POST "http://localhost//api/user/close_account" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost//api/user/close_account",
+    "url": "http://i-doapp.com//api/user/close_account",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -537,7 +537,7 @@ Returns a public wedding given its id as a parameter.
 > Example request:
 
 ```bash
-curl -X GET "http://localhost//api/wedding/get_other/{wedding}" \
+curl -X GET "http://i-doapp.com//api/wedding/get_other/{wedding}" \
 -H "Accept: application/json"
 ```
 
@@ -545,7 +545,7 @@ curl -X GET "http://localhost//api/wedding/get_other/{wedding}" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost//api/wedding/get_other/{wedding}",
+    "url": "http://i-doapp.com//api/wedding/get_other/{wedding}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -579,7 +579,7 @@ Return all public weddings in pages with every page having 15 weddings.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost//api/wedding/get_pages" \
+curl -X POST "http://i-doapp.com//api/wedding/get_pages" \
 -H "Accept: application/json" \
     -d "page"="817450" \
 
@@ -589,7 +589,7 @@ curl -X POST "http://localhost//api/wedding/get_pages" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost//api/wedding/get_pages",
+    "url": "http://i-doapp.com//api/wedding/get_pages",
     "method": "POST",
     "data": {
         "page": 817450
@@ -627,7 +627,7 @@ id on success.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost//api/wedding/create" \
+curl -X POST "http://i-doapp.com//api/wedding/create" \
 -H "Accept: application/json" \
     -d "groom_id"="46398" \
     -d "bride_id"="46398" \
@@ -648,7 +648,7 @@ curl -X POST "http://localhost//api/wedding/create" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost//api/wedding/create",
+    "url": "http://i-doapp.com//api/wedding/create",
     "method": "POST",
     "data": {
         "groom_id": 46398,
@@ -707,7 +707,7 @@ Updates this users wedding.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost//api/wedding/update" \
+curl -X POST "http://i-doapp.com//api/wedding/update" \
 -H "Accept: application/json" \
     -d "groom_id"="480" \
     -d "bride_id"="480" \
@@ -728,7 +728,7 @@ curl -X POST "http://localhost//api/wedding/update" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost//api/wedding/update",
+    "url": "http://i-doapp.com//api/wedding/update",
     "method": "POST",
     "data": {
         "groom_id": 480,
@@ -787,7 +787,7 @@ Returns the authenticated user's wedding if found.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost//api/wedding/get" \
+curl -X POST "http://i-doapp.com//api/wedding/get" \
 -H "Accept: application/json"
 ```
 
@@ -795,7 +795,7 @@ curl -X POST "http://localhost//api/wedding/get" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost//api/wedding/get",
+    "url": "http://i-doapp.com//api/wedding/get",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -824,7 +824,7 @@ Closes the authenticated user's wedding.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost//api/wedding/close" \
+curl -X POST "http://i-doapp.com//api/wedding/close" \
 -H "Accept: application/json"
 ```
 
@@ -832,7 +832,7 @@ curl -X POST "http://localhost//api/wedding/close" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost//api/wedding/close",
+    "url": "http://i-doapp.com//api/wedding/close",
     "method": "POST",
     "headers": {
         "accept": "application/json"
