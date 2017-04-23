@@ -342,7 +342,6 @@ This will update the details of an already logged in user.
 ```bash
 curl -X POST "http://localhost//api/user/update" \
 -H "Accept: application/json" \
-    -d "token"="culpa" \
     -d "name"="culpa" \
     -d "gender"="female" \
     -d "profile_pic"="culpa" \
@@ -356,7 +355,6 @@ var settings = {
     "url": "http://localhost//api/user/update",
     "method": "POST",
     "data": {
-        "token": "culpa",
         "name": "culpa",
         "gender": "female",
         "profile_pic": "culpa"
@@ -379,7 +377,6 @@ $.ajax(settings).done(function (response) {
 
 Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
-    token | string |  required  | 
     name | string |  required  | Maximum: `255`
     gender | string |  required  | `male` or `female`
     profile_pic | image |  optional  | Must be an image (jpeg, png, bmp, gif, or svg)
@@ -399,7 +396,6 @@ must have been registered using an email and password.
 ```bash
 curl -X POST "http://localhost//api/user/update_password" \
 -H "Accept: application/json" \
-    -d "token"="dicta" \
     -d "old_password"="dicta" \
     -d "password_confirm"="dicta" \
     -d "password"="dicta" \
@@ -413,7 +409,6 @@ var settings = {
     "url": "http://localhost//api/user/update_password",
     "method": "POST",
     "data": {
-        "token": "dicta",
         "old_password": "dicta",
         "password_confirm": "dicta",
         "password": "dicta"
@@ -436,7 +431,6 @@ $.ajax(settings).done(function (response) {
 
 Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
-    token | string |  required  | 
     old_password | string |  required  | Minimum: `6`
     password_confirm | string |  required  | Minimum: `6`
     password | string |  required  | Minimum: `6`

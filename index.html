@@ -394,7 +394,6 @@ $.ajax(settings).done(function (response) {
 </blockquote>
 <pre><code class="language-bash">curl -X POST "http://localhost//api/user/update" \
 -H "Accept: application/json" \
-    -d "token"="culpa" \
     -d "name"="culpa" \
     -d "gender"="female" \
     -d "profile_pic"="culpa" \
@@ -405,7 +404,6 @@ $.ajax(settings).done(function (response) {
     "url": "http://localhost//api/user/update",
     "method": "POST",
     "data": {
-        "token": "culpa",
         "name": "culpa",
         "gender": "female",
         "profile_pic": "culpa"
@@ -431,11 +429,6 @@ $.ajax(settings).done(function (response) {
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>token</td>
-<td>string</td>
-<td>required</td>
-</tr>
 <tr>
 <td>name</td>
 <td>string</td>
@@ -467,7 +460,6 @@ must have been registered using an email and password.</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST "http://localhost//api/user/update_password" \
 -H "Accept: application/json" \
-    -d "token"="dicta" \
     -d "old_password"="dicta" \
     -d "password_confirm"="dicta" \
     -d "password"="dicta" \
@@ -478,7 +470,6 @@ must have been registered using an email and password.</p>
     "url": "http://localhost//api/user/update_password",
     "method": "POST",
     "data": {
-        "token": "dicta",
         "old_password": "dicta",
         "password_confirm": "dicta",
         "password": "dicta"
@@ -504,11 +495,6 @@ $.ajax(settings).done(function (response) {
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>token</td>
-<td>string</td>
-<td>required</td>
-</tr>
 <tr>
 <td>old_password</td>
 <td>string</td>
