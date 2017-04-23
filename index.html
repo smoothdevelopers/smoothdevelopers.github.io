@@ -77,6 +77,7 @@ header e.g. &#039;Bearer eyJ0eXAiOiJKV1QiL...&#039;</p>
     -d "email"="ward.faye@example.com" \
     -d "password_confirm"="ab" \
     -d "password"="ab" \
+    -d "gender"="male" \
     -d "profile_pic"="ab" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
@@ -89,6 +90,7 @@ header e.g. &#039;Bearer eyJ0eXAiOiJKV1QiL...&#039;</p>
         "email": "ward.faye@example.com",
         "password_confirm": "ab",
         "password": "ab",
+        "gender": "male",
         "profile_pic": "ab"
 },
     "headers": {
@@ -137,6 +139,12 @@ $.ajax(settings).done(function (response) {
 <td>Minimum: <code>6</code></td>
 </tr>
 <tr>
+<td>gender</td>
+<td>string</td>
+<td>required</td>
+<td><code>male</code> or <code>female</code></td>
+</tr>
+<tr>
 <td>profile_pic</td>
 <td>image</td>
 <td>optional</td>
@@ -155,6 +163,7 @@ $.ajax(settings).done(function (response) {
 -H "Accept: application/json" \
     -d "name"="id" \
     -d "fb_id"="id" \
+    -d "gender"="female" \
     -d "profile_pic"="id" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
@@ -165,6 +174,7 @@ $.ajax(settings).done(function (response) {
     "data": {
         "name": "id",
         "fb_id": "id",
+        "gender": "female",
         "profile_pic": "id"
 },
     "headers": {
@@ -198,6 +208,12 @@ $.ajax(settings).done(function (response) {
 <td>fb_id</td>
 <td>string</td>
 <td>required</td>
+</tr>
+<tr>
+<td>gender</td>
+<td>string</td>
+<td>required</td>
+<td><code>male</code> or <code>female</code></td>
 </tr>
 <tr>
 <td>profile_pic</td>
@@ -342,7 +358,7 @@ $.ajax(settings).done(function (response) {
 <!-- START_25677b2fefca9a1f80499c00e4c4acf7 -->
 <h2>Refresh token</h2>
 <p>Note: Auth Required</p>
-<p>This will refresh current logged in users token</p>
+<p>This will refresh current logged in users token and return the new token</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -380,6 +396,7 @@ $.ajax(settings).done(function (response) {
 -H "Accept: application/json" \
     -d "token"="culpa" \
     -d "name"="culpa" \
+    -d "gender"="female" \
     -d "profile_pic"="culpa" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
@@ -390,6 +407,7 @@ $.ajax(settings).done(function (response) {
     "data": {
         "token": "culpa",
         "name": "culpa",
+        "gender": "female",
         "profile_pic": "culpa"
 },
     "headers": {
@@ -423,6 +441,12 @@ $.ajax(settings).done(function (response) {
 <td>string</td>
 <td>required</td>
 <td>Maximum: <code>255</code></td>
+</tr>
+<tr>
+<td>gender</td>
+<td>string</td>
+<td>required</td>
+<td><code>male</code> or <code>female</code></td>
 </tr>
 <tr>
 <td>profile_pic</td>
@@ -580,6 +604,398 @@ $.ajax(settings).done(function (response) {
 <h3>HTTP Request</h3>
 <p><code>POST /api/user/close_account</code></p>
 <!-- END_901f22c468bb4f7946c10670b088ad93 -->
+<h1>Wedding</h1>
+<p>This module will handle creation, access, update and desctruction of
+weddings :)</p>
+<p>Note: for a wedding to be created, we only require to have a couple and
+these two have to have created an account with us.</p>
+<!-- START_215c692433fd2245de4a7294ed03897c -->
+<h2>Get one public wedding.</h2>
+<p>Returns a public wedding given its id as a parameter.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET "http://localhost//api/wedding/get_other/{wedding}" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost//api/wedding/get_other/{wedding}",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">null</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /api/wedding/get_other/{wedding}</code></p>
+<p><code>HEAD /api/wedding/get_other/{wedding}</code></p>
+<!-- END_215c692433fd2245de4a7294ed03897c -->
+<!-- START_cd40717ee2c509069af7ed5b3b270140 -->
+<h2>Get public weddings by page.</h2>
+<p>Return all public weddings in pages with every page having 15 weddings.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost//api/wedding/get_pages" \
+-H "Accept: application/json" \
+    -d "page"="817450" \
+</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost//api/wedding/get_pages",
+    "method": "POST",
+    "data": {
+        "page": 817450
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /api/wedding/get_pages</code></p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>page</td>
+<td>integer</td>
+<td>required</td>
+</tr>
+</tbody>
+</table>
+<!-- END_cd40717ee2c509069af7ed5b3b270140 -->
+<!-- START_c1656cf4b0c0abf54a59393b6903898d -->
+<h2>Create wedding.</h2>
+<p>Note: Auth Required.</p>
+<p>This will create a wedding between two app users and returns the wedding
+id on success.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost//api/wedding/create" \
+-H "Accept: application/json" \
+    -d "groom_id"="46398" \
+    -d "bride_id"="46398" \
+    -d "description"="rerum" \
+    -d "venue"="rerum" \
+    -d "reception"="rerum" \
+    -d "venue_lat"="46398" \
+    -d "venue_lng"="46398" \
+    -d "reception_lat"="46398" \
+    -d "reception_lng"="46398" \
+    -d "when"="46398" \
+    -d "is_public"="1" \
+    -d "image"="rerum" \
+</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost//api/wedding/create",
+    "method": "POST",
+    "data": {
+        "groom_id": 46398,
+        "bride_id": 46398,
+        "description": "rerum",
+        "venue": "rerum",
+        "reception": "rerum",
+        "venue_lat": 46398,
+        "venue_lng": 46398,
+        "reception_lat": 46398,
+        "reception_lng": 46398,
+        "when": 46398,
+        "is_public": true,
+        "image": "rerum"
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /api/wedding/create</code></p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>groom_id</td>
+<td>integer</td>
+<td>required</td>
+</tr>
+<tr>
+<td>bride_id</td>
+<td>integer</td>
+<td>required</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>venue</td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>reception</td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>venue_lat</td>
+<td>numeric</td>
+<td>optional</td>
+<td>Required if the parameters <code>venue_lng</code> are present.</td>
+</tr>
+<tr>
+<td>venue_lng</td>
+<td>numeric</td>
+<td>optional</td>
+<td>Required if the parameters <code>venue_lat</code> are present.</td>
+</tr>
+<tr>
+<td>reception_lat</td>
+<td>numeric</td>
+<td>optional</td>
+<td>Required if the parameters <code>reception_lng</code> are present.</td>
+</tr>
+<tr>
+<td>reception_lng</td>
+<td>numeric</td>
+<td>optional</td>
+<td>Required if the parameters <code>reception_lat</code> are present.</td>
+</tr>
+<tr>
+<td>when</td>
+<td>numeric</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>is_public</td>
+<td>boolean</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>image</td>
+<td>image</td>
+<td>optional</td>
+<td>Must be an image (jpeg, png, bmp, gif, or svg)</td>
+</tr>
+</tbody>
+</table>
+<!-- END_c1656cf4b0c0abf54a59393b6903898d -->
+<!-- START_a980dbfae34220591a9b41d427ea08c8 -->
+<h2>Update wedding.</h2>
+<p>Note: Auth Required.</p>
+<p>Updates this users wedding.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost//api/wedding/update" \
+-H "Accept: application/json" \
+    -d "groom_id"="480" \
+    -d "bride_id"="480" \
+    -d "description"="modi" \
+    -d "venue"="modi" \
+    -d "reception"="modi" \
+    -d "venue_lat"="480" \
+    -d "venue_lng"="480" \
+    -d "reception_lat"="480" \
+    -d "reception_lng"="480" \
+    -d "when"="480" \
+    -d "is_public"="1" \
+    -d "image"="modi" \
+</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost//api/wedding/update",
+    "method": "POST",
+    "data": {
+        "groom_id": 480,
+        "bride_id": 480,
+        "description": "modi",
+        "venue": "modi",
+        "reception": "modi",
+        "venue_lat": 480,
+        "venue_lng": 480,
+        "reception_lat": 480,
+        "reception_lng": 480,
+        "when": 480,
+        "is_public": true,
+        "image": "modi"
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /api/wedding/update</code></p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>groom_id</td>
+<td>integer</td>
+<td>required</td>
+</tr>
+<tr>
+<td>bride_id</td>
+<td>integer</td>
+<td>required</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>venue</td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>reception</td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>venue_lat</td>
+<td>numeric</td>
+<td>optional</td>
+<td>Required if the parameters <code>venue_lng</code> are present.</td>
+</tr>
+<tr>
+<td>venue_lng</td>
+<td>numeric</td>
+<td>optional</td>
+<td>Required if the parameters <code>venue_lat</code> are present.</td>
+</tr>
+<tr>
+<td>reception_lat</td>
+<td>numeric</td>
+<td>optional</td>
+<td>Required if the parameters <code>reception_lng</code> are present.</td>
+</tr>
+<tr>
+<td>reception_lng</td>
+<td>numeric</td>
+<td>optional</td>
+<td>Required if the parameters <code>reception_lat</code> are present.</td>
+</tr>
+<tr>
+<td>when</td>
+<td>numeric</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>is_public</td>
+<td>boolean</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>image</td>
+<td>image</td>
+<td>optional</td>
+<td>Must be an image (jpeg, png, bmp, gif, or svg)</td>
+</tr>
+</tbody>
+</table>
+<!-- END_a980dbfae34220591a9b41d427ea08c8 -->
+<!-- START_b50b634738779e258b4b191f0a2ef21b -->
+<h2>Get this user&#039;s wedding.</h2>
+<p>Note: Auth Required.</p>
+<p>Returns the authenticated user's wedding if found.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost//api/wedding/get" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost//api/wedding/get",
+    "method": "POST",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /api/wedding/get</code></p>
+<!-- END_b50b634738779e258b4b191f0a2ef21b -->
+<!-- START_89972e9a15d708f3105bbc247f1eca02 -->
+<h2>Close user wedding.</h2>
+<p>Note: Auth Required.</p>
+<p>Closes the authenticated user's wedding.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost//api/wedding/close" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost//api/wedding/close",
+    "method": "POST",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /api/wedding/close</code></p>
+<!-- END_89972e9a15d708f3105bbc247f1eca02 -->
       </div>
       <div class="dark-box">
                         <div class="lang-selector">
