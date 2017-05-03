@@ -68,6 +68,9 @@ header e.g. &#039;Bearer eyJ0eXAiOiJKV1QiL...&#039;</p>
 <!-- START_9b706bcb7d78cfacbf8e5e3e7d8afe2b -->
 <h2>Register with email and password.</h2>
 <p>Will register the user with an email and password.</p>
+<p>On success:
+{ 'error': false, 'error-code': success-code, 'error-description': ... }</p>
+<p>On error: null.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -75,7 +78,7 @@ header e.g. &#039;Bearer eyJ0eXAiOiJKV1QiL...&#039;</p>
 -H "Accept: application/json" \
     -d "name"="ab" \
     -d "email"="ward.faye@example.com" \
-    -d "password_confirm"="ab" \
+    -d "password_confirmation"="ab" \
     -d "password"="ab" \
     -d "gender"="male" \
     -d "profile_pic"="ab" \
@@ -88,7 +91,7 @@ header e.g. &#039;Bearer eyJ0eXAiOiJKV1QiL...&#039;</p>
     "data": {
         "name": "ab",
         "email": "ward.faye@example.com",
-        "password_confirm": "ab",
+        "password_confirmation": "ab",
         "password": "ab",
         "gender": "male",
         "profile_pic": "ab"
@@ -127,7 +130,7 @@ $.ajax(settings).done(function (response) {
 <td>Maximum: <code>255</code></td>
 </tr>
 <tr>
-<td>password_confirm</td>
+<td>password_confirmation</td>
 <td>string</td>
 <td>required</td>
 <td>Minimum: <code>6</code></td>
@@ -156,6 +159,8 @@ $.ajax(settings).done(function (response) {
 <!-- START_5aa3d01db2b9d4c6a5d0d1ee7c426bd8 -->
 <h2>Register with Facebook</h2>
 <p>Will register a user using their Facebook ID.</p>
+<p>On success:
+{ 'error': false, 'error-code': success-code, 'error-description': ... }</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -226,7 +231,9 @@ $.ajax(settings).done(function (response) {
 <!-- END_5aa3d01db2b9d4c6a5d0d1ee7c426bd8 -->
 <!-- START_96e41001d85ca072dc79e94397b6f2e3 -->
 <h2>Login with email and password.</h2>
-<p>Will login a user with their email and password.</p>
+<p>Will login a user with their email and password and return a token.</p>
+<p>On success:
+{ 'error': false, 'error-code': success-code, 'error-description': ..., 'token': ... }</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -280,7 +287,9 @@ $.ajax(settings).done(function (response) {
 <!-- END_96e41001d85ca072dc79e94397b6f2e3 -->
 <!-- START_5185b1c08ff9fc05d72653d65ed7ed67 -->
 <h2>Login with Facebook ID.</h2>
-<p>Will login a user with their Facebook ID.</p>
+<p>Will login a user with their Facebook ID and return a token.</p>
+<p>On success:
+{ 'error': false, 'error-code': success-code, 'error-description': ..., 'token': ... }</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -325,10 +334,95 @@ $.ajax(settings).done(function (response) {
 </tbody>
 </table>
 <!-- END_5185b1c08ff9fc05d72653d65ed7ed67 -->
+<!-- START_5b028048ded09ef8d7b75cbb829d70c3 -->
+<h2>Search users by name or email.</h2>
+<p>This will search and return a list of users in pages.</p>
+<p>On success:
+{ 'error': false, 'error-code': success-code, 'error-description': ..., 'users': # users # }</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://i-doapp.com//api/user/search_paged" \
+-H "Accept: application/json" \
+    -d "page"="94608" \
+    -d "search_term"="dolorum" \
+</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://i-doapp.com//api/user/search_paged",
+    "method": "POST",
+    "data": {
+        "page": 94608,
+        "search_term": "dolorum"
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /api/user/search_paged</code></p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>page</td>
+<td>integer</td>
+<td>required</td>
+</tr>
+<tr>
+<td>search_term</td>
+<td>string</td>
+<td>required</td>
+</tr>
+</tbody>
+</table>
+<!-- END_5b028048ded09ef8d7b75cbb829d70c3 -->
+<!-- START_1cff6a9e89def167de9d09a13dd2555d -->
+<h2>Refresh token</h2>
+<p>Note: Auth Required</p>
+<p>This will refresh current logged in users token and return the new token</p>
+<p>On success:
+{ 'error': false, 'error-code': success-code, 'error-description': ... }</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://i-doapp.com//api/user/refresh_token" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://i-doapp.com//api/user/refresh_token",
+    "method": "POST",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /api/user/refresh_token</code></p>
+<!-- END_1cff6a9e89def167de9d09a13dd2555d -->
 <!-- START_9c9260bd1ad91eb9aa21477f56d5ad8b -->
 <h2>User details.</h2>
 <p>Note: Auth Required</p>
 <p>Returns all the details of the currently logged in user.</p>
+<p>On success:
+{ 'error': false, 'error-code': success-code, 'error-description': ..., 'user': { # user data # } }</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -355,40 +449,12 @@ $.ajax(settings).done(function (response) {
 <p><code>GET /api/user/get</code></p>
 <p><code>HEAD /api/user/get</code></p>
 <!-- END_9c9260bd1ad91eb9aa21477f56d5ad8b -->
-<!-- START_25677b2fefca9a1f80499c00e4c4acf7 -->
-<h2>Refresh token</h2>
-<p>Note: Auth Required</p>
-<p>This will refresh current logged in users token and return the new token</p>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
-<pre><code class="language-bash">curl -X GET "http://i-doapp.com//api/user/refresh_token" \
--H "Accept: application/json"</code></pre>
-<pre><code class="language-javascript">var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://i-doapp.com//api/user/refresh_token",
-    "method": "GET",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});</code></pre>
-<blockquote>
-<p>Example response:</p>
-</blockquote>
-<pre><code class="language-json">null</code></pre>
-<h3>HTTP Request</h3>
-<p><code>GET /api/user/refresh_token</code></p>
-<p><code>HEAD /api/user/refresh_token</code></p>
-<!-- END_25677b2fefca9a1f80499c00e4c4acf7 -->
 <!-- START_99dabfc22a317a2385dee642272a537e -->
 <h2>Update user details.</h2>
 <p>Note: Auth Required.</p>
 <p>This will update the details of an already logged in user.</p>
+<p>On success:
+{ 'error': false, 'error-code': success-code, 'error-description': ... }</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -455,13 +521,15 @@ $.ajax(settings).done(function (response) {
 <p>Note: Auth Required.</p>
 <p>This will update the password of an already logged in user. This user
 must have been registered using an email and password.</p>
+<p>On success:
+{ 'error': false, 'error-code': success-code, 'error-description': ... }</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST "http://i-doapp.com//api/user/update_password" \
 -H "Accept: application/json" \
     -d "old_password"="dicta" \
-    -d "password_confirm"="dicta" \
+    -d "password_confirmation"="dicta" \
     -d "password"="dicta" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
@@ -471,7 +539,7 @@ must have been registered using an email and password.</p>
     "method": "POST",
     "data": {
         "old_password": "dicta",
-        "password_confirm": "dicta",
+        "password_confirmation": "dicta",
         "password": "dicta"
 },
     "headers": {
@@ -502,7 +570,7 @@ $.ajax(settings).done(function (response) {
 <td>Minimum: <code>6</code></td>
 </tr>
 <tr>
-<td>password_confirm</td>
+<td>password_confirmation</td>
 <td>string</td>
 <td>required</td>
 <td>Minimum: <code>6</code></td>
@@ -521,6 +589,8 @@ $.ajax(settings).done(function (response) {
 <p>Note: Auth Required.</p>
 <p>Will logout the logged in user and close the session.
 The token is required.</p>
+<p>On success:
+{ 'error': false, 'error-code': success-code, 'error-description': ... }</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -569,6 +639,8 @@ $.ajax(settings).done(function (response) {
 <h2>Close user account.</h2>
 <p>Note: Auth Required.</p>
 <p>This will close the logged in user's account by soft deleting it.</p>
+<p>On success:
+{ 'error': false, 'error-code': success-code, 'error-description': ... }</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -595,52 +667,23 @@ $.ajax(settings).done(function (response) {
 weddings :)</p>
 <p>Note: for a wedding to be created, we only require to have a couple and
 these two have to have created an account with us.</p>
-<!-- START_215c692433fd2245de4a7294ed03897c -->
-<h2>Get one public wedding.</h2>
+<!-- START_8994c494dcee876111b0a139e4365c99 -->
+<h2>Get one public wedding by id.</h2>
 <p>Returns a public wedding given its id as a parameter.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET "http://i-doapp.com//api/wedding/get_other/{wedding}" \
--H "Accept: application/json"</code></pre>
-<pre><code class="language-javascript">var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://i-doapp.com//api/wedding/get_other/{wedding}",
-    "method": "GET",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});</code></pre>
-<blockquote>
-<p>Example response:</p>
-</blockquote>
-<pre><code class="language-json">null</code></pre>
-<h3>HTTP Request</h3>
-<p><code>GET /api/wedding/get_other/{wedding}</code></p>
-<p><code>HEAD /api/wedding/get_other/{wedding}</code></p>
-<!-- END_215c692433fd2245de4a7294ed03897c -->
-<!-- START_cd40717ee2c509069af7ed5b3b270140 -->
-<h2>Get public weddings by page.</h2>
-<p>Return all public weddings in pages with every page having 15 weddings.</p>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
-<pre><code class="language-bash">curl -X POST "http://i-doapp.com//api/wedding/get_pages" \
+<pre><code class="language-bash">curl -X POST "http://i-doapp.com//api/wedding/get_one" \
 -H "Accept: application/json" \
-    -d "page"="817450" \
+    -d "wedding_id"="630827" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://i-doapp.com//api/wedding/get_pages",
+    "url": "http://i-doapp.com//api/wedding/get_one",
     "method": "POST",
     "data": {
-        "page": 817450
+        "wedding_id": 630827
 },
     "headers": {
         "accept": "application/json"
@@ -651,7 +694,54 @@ $.ajax(settings).done(function (response) {
     console.log(response);
 });</code></pre>
 <h3>HTTP Request</h3>
-<p><code>POST /api/wedding/get_pages</code></p>
+<p><code>POST /api/wedding/get_one</code></p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>wedding_id</td>
+<td>integer</td>
+<td>required</td>
+</tr>
+</tbody>
+</table>
+<!-- END_8994c494dcee876111b0a139e4365c99 -->
+<!-- START_9e56c96e75d01fc6354a8dfaf228a5e0 -->
+<h2>Get public weddings by page.</h2>
+<p>Return all public weddings in pages with every page having 15 weddings.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://i-doapp.com//api/wedding/get_paged" \
+-H "Accept: application/json" \
+    -d "page"="51782023" \
+</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://i-doapp.com//api/wedding/get_paged",
+    "method": "POST",
+    "data": {
+        "page": 51782023
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /api/wedding/get_paged</code></p>
 <h4>Parameters</h4>
 <table>
 <thead>
@@ -670,11 +760,11 @@ $.ajax(settings).done(function (response) {
 </tr>
 </tbody>
 </table>
-<!-- END_cd40717ee2c509069af7ed5b3b270140 -->
+<!-- END_9e56c96e75d01fc6354a8dfaf228a5e0 -->
 <!-- START_c1656cf4b0c0abf54a59393b6903898d -->
 <h2>Create wedding.</h2>
 <p>Note: Auth Required.</p>
-<p>This will create a wedding between two app users and returns the wedding
+<p>This will create a wedding between two app users and return the wedding
 id on success.</p>
 <blockquote>
 <p>Example request:</p>

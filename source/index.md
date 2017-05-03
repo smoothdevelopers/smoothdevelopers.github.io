@@ -40,6 +40,11 @@ header e.g. &#039;Bearer eyJ0eXAiOiJKV1QiL...&#039;
 
 Will register the user with an email and password.
 
+On success:
+{ 'error': false, 'error-code': success-code, 'error-description': ... }
+
+On error: null.
+
 > Example request:
 
 ```bash
@@ -47,7 +52,7 @@ curl -X POST "http://i-doapp.com//api/user/register" \
 -H "Accept: application/json" \
     -d "name"="ab" \
     -d "email"="ward.faye@example.com" \
-    -d "password_confirm"="ab" \
+    -d "password_confirmation"="ab" \
     -d "password"="ab" \
     -d "gender"="male" \
     -d "profile_pic"="ab" \
@@ -63,7 +68,7 @@ var settings = {
     "data": {
         "name": "ab",
         "email": "ward.faye@example.com",
-        "password_confirm": "ab",
+        "password_confirmation": "ab",
         "password": "ab",
         "gender": "male",
         "profile_pic": "ab"
@@ -88,7 +93,7 @@ Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
     name | string |  required  | Maximum: `255`
     email | email |  required  | Maximum: `255`
-    password_confirm | string |  required  | Minimum: `6`
+    password_confirmation | string |  required  | Minimum: `6`
     password | string |  required  | Minimum: `6`
     gender | string |  required  | `male` or `female`
     profile_pic | image |  optional  | Must be an image (jpeg, png, bmp, gif, or svg)
@@ -99,6 +104,9 @@ Parameter | Type | Status | Description
 ## Register with Facebook
 
 Will register a user using their Facebook ID.
+
+On success:
+{ 'error': false, 'error-code': success-code, 'error-description': ... }
 
 > Example request:
 
@@ -152,7 +160,10 @@ Parameter | Type | Status | Description
 <!-- START_96e41001d85ca072dc79e94397b6f2e3 -->
 ## Login with email and password.
 
-Will login a user with their email and password.
+Will login a user with their email and password and return a token.
+
+On success:
+{ 'error': false, 'error-code': success-code, 'error-description': ..., 'token': ... }
 
 > Example request:
 
@@ -200,7 +211,10 @@ Parameter | Type | Status | Description
 <!-- START_5185b1c08ff9fc05d72653d65ed7ed67 -->
 ## Login with Facebook ID.
 
-Will login a user with their Facebook ID.
+Will login a user with their Facebook ID and return a token.
+
+On success:
+{ 'error': false, 'error-code': success-code, 'error-description': ..., 'token': ... }
 
 > Example request:
 
@@ -242,12 +256,106 @@ Parameter | Type | Status | Description
 
 <!-- END_5185b1c08ff9fc05d72653d65ed7ed67 -->
 
+<!-- START_5b028048ded09ef8d7b75cbb829d70c3 -->
+## Search users by name or email.
+
+This will search and return a list of users in pages.
+
+On success:
+{ 'error': false, 'error-code': success-code, 'error-description': ..., 'users': # users # }
+
+> Example request:
+
+```bash
+curl -X POST "http://i-doapp.com//api/user/search_paged" \
+-H "Accept: application/json" \
+    -d "page"="94608" \
+    -d "search_term"="dolorum" \
+
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://i-doapp.com//api/user/search_paged",
+    "method": "POST",
+    "data": {
+        "page": 94608,
+        "search_term": "dolorum"
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST /api/user/search_paged`
+
+#### Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    page | integer |  required  | 
+    search_term | string |  required  | 
+
+<!-- END_5b028048ded09ef8d7b75cbb829d70c3 -->
+
+<!-- START_1cff6a9e89def167de9d09a13dd2555d -->
+## Refresh token
+
+Note: Auth Required
+
+This will refresh current logged in users token and return the new token
+
+On success:
+{ 'error': false, 'error-code': success-code, 'error-description': ... }
+
+> Example request:
+
+```bash
+curl -X POST "http://i-doapp.com//api/user/refresh_token" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://i-doapp.com//api/user/refresh_token",
+    "method": "POST",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST /api/user/refresh_token`
+
+
+<!-- END_1cff6a9e89def167de9d09a13dd2555d -->
+
 <!-- START_9c9260bd1ad91eb9aa21477f56d5ad8b -->
 ## User details.
 
 Note: Auth Required
 
 Returns all the details of the currently logged in user.
+
+On success:
+{ 'error': false, 'error-code': success-code, 'error-description': ..., 'user': { # user data # } }
 
 > Example request:
 
@@ -286,56 +394,15 @@ null
 
 <!-- END_9c9260bd1ad91eb9aa21477f56d5ad8b -->
 
-<!-- START_25677b2fefca9a1f80499c00e4c4acf7 -->
-## Refresh token
-
-Note: Auth Required
-
-This will refresh current logged in users token and return the new token
-
-> Example request:
-
-```bash
-curl -X GET "http://i-doapp.com//api/user/refresh_token" \
--H "Accept: application/json"
-```
-
-```javascript
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://i-doapp.com//api/user/refresh_token",
-    "method": "GET",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
-```
-
-> Example response:
-
-```json
-null
-```
-
-### HTTP Request
-`GET /api/user/refresh_token`
-
-`HEAD /api/user/refresh_token`
-
-
-<!-- END_25677b2fefca9a1f80499c00e4c4acf7 -->
-
 <!-- START_99dabfc22a317a2385dee642272a537e -->
 ## Update user details.
 
 Note: Auth Required.
 
 This will update the details of an already logged in user.
+
+On success:
+{ 'error': false, 'error-code': success-code, 'error-description': ... }
 
 > Example request:
 
@@ -391,13 +458,16 @@ Note: Auth Required.
 This will update the password of an already logged in user. This user
 must have been registered using an email and password.
 
+On success:
+{ 'error': false, 'error-code': success-code, 'error-description': ... }
+
 > Example request:
 
 ```bash
 curl -X POST "http://i-doapp.com//api/user/update_password" \
 -H "Accept: application/json" \
     -d "old_password"="dicta" \
-    -d "password_confirm"="dicta" \
+    -d "password_confirmation"="dicta" \
     -d "password"="dicta" \
 
 ```
@@ -410,7 +480,7 @@ var settings = {
     "method": "POST",
     "data": {
         "old_password": "dicta",
-        "password_confirm": "dicta",
+        "password_confirmation": "dicta",
         "password": "dicta"
 },
     "headers": {
@@ -432,7 +502,7 @@ $.ajax(settings).done(function (response) {
 Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
     old_password | string |  required  | Minimum: `6`
-    password_confirm | string |  required  | Minimum: `6`
+    password_confirmation | string |  required  | Minimum: `6`
     password | string |  required  | Minimum: `6`
 
 <!-- END_a93d6745597660d48aea8c2249b67600 -->
@@ -444,6 +514,9 @@ Note: Auth Required.
 
 Will logout the logged in user and close the session.
 The token is required.
+
+On success:
+{ 'error': false, 'error-code': success-code, 'error-description': ... }
 
 > Example request:
 
@@ -492,6 +565,9 @@ Note: Auth Required.
 
 This will close the logged in user's account by soft deleting it.
 
+On success:
+{ 'error': false, 'error-code': success-code, 'error-description': ... }
+
 > Example request:
 
 ```bash
@@ -529,59 +605,17 @@ weddings :)
 
 Note: for a wedding to be created, we only require to have a couple and
       these two have to have created an account with us.
-<!-- START_215c692433fd2245de4a7294ed03897c -->
-## Get one public wedding.
+<!-- START_8994c494dcee876111b0a139e4365c99 -->
+## Get one public wedding by id.
 
 Returns a public wedding given its id as a parameter.
 
 > Example request:
 
 ```bash
-curl -X GET "http://i-doapp.com//api/wedding/get_other/{wedding}" \
--H "Accept: application/json"
-```
-
-```javascript
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://i-doapp.com//api/wedding/get_other/{wedding}",
-    "method": "GET",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
-```
-
-> Example response:
-
-```json
-null
-```
-
-### HTTP Request
-`GET /api/wedding/get_other/{wedding}`
-
-`HEAD /api/wedding/get_other/{wedding}`
-
-
-<!-- END_215c692433fd2245de4a7294ed03897c -->
-
-<!-- START_cd40717ee2c509069af7ed5b3b270140 -->
-## Get public weddings by page.
-
-Return all public weddings in pages with every page having 15 weddings.
-
-> Example request:
-
-```bash
-curl -X POST "http://i-doapp.com//api/wedding/get_pages" \
+curl -X POST "http://i-doapp.com//api/wedding/get_one" \
 -H "Accept: application/json" \
-    -d "page"="817450" \
+    -d "wedding_id"="630827" \
 
 ```
 
@@ -589,10 +623,10 @@ curl -X POST "http://i-doapp.com//api/wedding/get_pages" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://i-doapp.com//api/wedding/get_pages",
+    "url": "http://i-doapp.com//api/wedding/get_one",
     "method": "POST",
     "data": {
-        "page": 817450
+        "wedding_id": 630827
 },
     "headers": {
         "accept": "application/json"
@@ -606,7 +640,52 @@ $.ajax(settings).done(function (response) {
 
 
 ### HTTP Request
-`POST /api/wedding/get_pages`
+`POST /api/wedding/get_one`
+
+#### Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    wedding_id | integer |  required  | 
+
+<!-- END_8994c494dcee876111b0a139e4365c99 -->
+
+<!-- START_9e56c96e75d01fc6354a8dfaf228a5e0 -->
+## Get public weddings by page.
+
+Return all public weddings in pages with every page having 15 weddings.
+
+> Example request:
+
+```bash
+curl -X POST "http://i-doapp.com//api/wedding/get_paged" \
+-H "Accept: application/json" \
+    -d "page"="51782023" \
+
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://i-doapp.com//api/wedding/get_paged",
+    "method": "POST",
+    "data": {
+        "page": 51782023
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST /api/wedding/get_paged`
 
 #### Parameters
 
@@ -614,14 +693,14 @@ Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
     page | integer |  required  | 
 
-<!-- END_cd40717ee2c509069af7ed5b3b270140 -->
+<!-- END_9e56c96e75d01fc6354a8dfaf228a5e0 -->
 
 <!-- START_c1656cf4b0c0abf54a59393b6903898d -->
 ## Create wedding.
 
 Note: Auth Required.
 
-This will create a wedding between two app users and returns the wedding
+This will create a wedding between two app users and return the wedding
 id on success.
 
 > Example request:
