@@ -48,6 +48,385 @@
 <p>Welcome to the generated API reference.
 <a href="http://localhost/docs/collection.json">Get Postman Collection</a></p>
 <!-- END_INFO -->
+<h1>Engagement</h1>
+<p>This module handles the creation, updating and deletion of
+engagements.</p>
+<p>Note: for an engagement to be created, we only require to have a couple and
+these two have to have created an account with us.</p>
+<!-- START_bcdb7863c3831e46bb710baf7dadb297 -->
+<h2>Get one public engagement by id.</h2>
+<p>Returns a public engagement given its id as a parameter.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://i-doapp.com//api/engagement/get_one" \
+-H "Accept: application/json" \
+    -d "engagement_id"="772121753" \
+</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://i-doapp.com//api/engagement/get_one",
+    "method": "POST",
+    "data": {
+        "engagement_id": 772121753
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /api/engagement/get_one</code></p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>engagement_id</td>
+<td>integer</td>
+<td>required</td>
+</tr>
+</tbody>
+</table>
+<!-- END_bcdb7863c3831e46bb710baf7dadb297 -->
+<!-- START_a222e3482c977b9c139bfcd3208c1d8b -->
+<h2>Get public engagements by page.</h2>
+<p>Return all public engagements in pages with every page having 15 engagements.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://i-doapp.com//api/engagement/get_paged" \
+-H "Accept: application/json" \
+    -d "page"="519" \
+</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://i-doapp.com//api/engagement/get_paged",
+    "method": "POST",
+    "data": {
+        "page": 519
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /api/engagement/get_paged</code></p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>page</td>
+<td>integer</td>
+<td>required</td>
+</tr>
+</tbody>
+</table>
+<!-- END_a222e3482c977b9c139bfcd3208c1d8b -->
+<!-- START_f1aabb6491c18132728616b8bb11355e -->
+<h2>Create engagement.</h2>
+<p>Note: Auth Required.</p>
+<p>This will create an engagement between two app users and return the engagement
+id on success. The user creating the engagement must either be the bride or
+the groom in the engagement.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://i-doapp.com//api/engagement/create" \
+-H "Accept: application/json" \
+    -d "groom_id"="58" \
+    -d "bride_id"="58" \
+    -d "proposal_date"="58" \
+    -d "culture"="58" \
+    -d "proposal_lat"="58" \
+    -d "proposal_lng"="58" \
+    -d "image"="magnam" \
+    -d "phrase"="magnam" \
+    -d "type"="58" \
+    -d "privacy"="58" \
+</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://i-doapp.com//api/engagement/create",
+    "method": "POST",
+    "data": {
+        "groom_id": 58,
+        "bride_id": 58,
+        "proposal_date": 58,
+        "culture": 58,
+        "proposal_lat": 58,
+        "proposal_lng": 58,
+        "image": "magnam",
+        "phrase": "magnam",
+        "type": 58,
+        "privacy": 58
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /api/engagement/create</code></p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>groom_id</td>
+<td>integer</td>
+<td>required</td>
+</tr>
+<tr>
+<td>bride_id</td>
+<td>integer</td>
+<td>required</td>
+</tr>
+<tr>
+<td>proposal_date</td>
+<td>numeric</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>culture</td>
+<td>integer</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>proposal_lat</td>
+<td>numeric</td>
+<td>optional</td>
+<td>Required if the parameters <code>proposal_lng</code> are present.</td>
+</tr>
+<tr>
+<td>proposal_lng</td>
+<td>numeric</td>
+<td>optional</td>
+<td>Required if the parameters <code>proposal_lng</code> are present.</td>
+</tr>
+<tr>
+<td>image</td>
+<td>image</td>
+<td>optional</td>
+<td>Must be an image (jpeg, png, bmp, gif, or svg)</td>
+</tr>
+<tr>
+<td>phrase</td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>type</td>
+<td>integer</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>privacy</td>
+<td>integer</td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<!-- END_f1aabb6491c18132728616b8bb11355e -->
+<!-- START_6144b66ae57541e27c78677d69c9d4bc -->
+<h2>Update engagement.</h2>
+<p>Note: Auth Required.</p>
+<p>Updates this users engagement.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://i-doapp.com//api/engagement/update" \
+-H "Accept: application/json" \
+    -d "groom_id"="6" \
+    -d "bride_id"="6" \
+    -d "proposal_date"="6" \
+    -d "culture"="6" \
+    -d "proposal_lat"="6" \
+    -d "proposal_lng"="6" \
+    -d "image"="perferendis" \
+    -d "phrase"="perferendis" \
+    -d "type"="6" \
+    -d "privacy"="6" \
+</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://i-doapp.com//api/engagement/update",
+    "method": "POST",
+    "data": {
+        "groom_id": 6,
+        "bride_id": 6,
+        "proposal_date": 6,
+        "culture": 6,
+        "proposal_lat": 6,
+        "proposal_lng": 6,
+        "image": "perferendis",
+        "phrase": "perferendis",
+        "type": 6,
+        "privacy": 6
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /api/engagement/update</code></p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>groom_id</td>
+<td>integer</td>
+<td>required</td>
+</tr>
+<tr>
+<td>bride_id</td>
+<td>integer</td>
+<td>required</td>
+</tr>
+<tr>
+<td>proposal_date</td>
+<td>numeric</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>culture</td>
+<td>integer</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>proposal_lat</td>
+<td>numeric</td>
+<td>optional</td>
+<td>Required if the parameters <code>proposal_lng</code> are present.</td>
+</tr>
+<tr>
+<td>proposal_lng</td>
+<td>numeric</td>
+<td>optional</td>
+<td>Required if the parameters <code>proposal_lng</code> are present.</td>
+</tr>
+<tr>
+<td>image</td>
+<td>image</td>
+<td>optional</td>
+<td>Must be an image (jpeg, png, bmp, gif, or svg)</td>
+</tr>
+<tr>
+<td>phrase</td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>type</td>
+<td>integer</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>privacy</td>
+<td>integer</td>
+<td>optional</td>
+</tr>
+</tbody>
+</table>
+<!-- END_6144b66ae57541e27c78677d69c9d4bc -->
+<!-- START_9dc7a9e7b43007917a52791a03478092 -->
+<h2>Get this user&#039;s engagement.</h2>
+<p>Note: Auth Required.</p>
+<p>Returns the authenticated user's engagement if found.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://i-doapp.com//api/engagement/get" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://i-doapp.com//api/engagement/get",
+    "method": "POST",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /api/engagement/get</code></p>
+<!-- END_9dc7a9e7b43007917a52791a03478092 -->
+<!-- START_50683e5d68ff9e630d6319761da83694 -->
+<h2>Close user&#039;s engagement.</h2>
+<p>Note: Auth Required.</p>
+<p>Closes the authenticated user's engagement.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://i-doapp.com//api/engagement/close" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://i-doapp.com//api/engagement/close",
+    "method": "POST",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /api/engagement/close</code></p>
+<!-- END_50683e5d68ff9e630d6319761da83694 -->
 <h1>User</h1>
 <p>This module will handle all the user manipulation including:</p>
 <ol>
@@ -346,6 +725,8 @@ $.ajax(settings).done(function (response) {
 -H "Accept: application/json" \
     -d "page"="94608" \
     -d "search_term"="dolorum" \
+    -d "gender"="female" \
+    -d "search_by"="email" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
@@ -354,7 +735,9 @@ $.ajax(settings).done(function (response) {
     "method": "POST",
     "data": {
         "page": 94608,
-        "search_term": "dolorum"
+        "search_term": "dolorum",
+        "gender": "female",
+        "search_by": "email"
 },
     "headers": {
         "accept": "application/json"
@@ -386,6 +769,18 @@ $.ajax(settings).done(function (response) {
 <td>search_term</td>
 <td>string</td>
 <td>required</td>
+</tr>
+<tr>
+<td>gender</td>
+<td>string</td>
+<td>required</td>
+<td><code>male</code>, <code>female</code> or <code>both</code></td>
+</tr>
+<tr>
+<td>search_by</td>
+<td>string</td>
+<td>required</td>
+<td><code>name</code>, <code>email</code> or <code>both</code></td>
 </tr>
 </tbody>
 </table>
@@ -765,7 +1160,8 @@ $.ajax(settings).done(function (response) {
 <h2>Create wedding.</h2>
 <p>Note: Auth Required.</p>
 <p>This will create a wedding between two app users and return the wedding
-id on success.</p>
+id on success. The user creating the wedding must either be the bride or
+the groom in the wedding.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -781,7 +1177,7 @@ id on success.</p>
     -d "reception_lat"="46398" \
     -d "reception_lng"="46398" \
     -d "when"="46398" \
-    -d "is_public"="1" \
+    -d "privacy"="46398" \
     -d "image"="rerum" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
@@ -800,7 +1196,7 @@ id on success.</p>
         "reception_lat": 46398,
         "reception_lng": 46398,
         "when": 46398,
-        "is_public": true,
+        "privacy": 46398,
         "image": "rerum"
 },
     "headers": {
@@ -879,8 +1275,8 @@ $.ajax(settings).done(function (response) {
 <td>optional</td>
 </tr>
 <tr>
-<td>is_public</td>
-<td>boolean</td>
+<td>privacy</td>
+<td>numeric</td>
 <td>optional</td>
 </tr>
 <tr>
@@ -911,7 +1307,7 @@ $.ajax(settings).done(function (response) {
     -d "reception_lat"="480" \
     -d "reception_lng"="480" \
     -d "when"="480" \
-    -d "is_public"="1" \
+    -d "privacy"="480" \
     -d "image"="modi" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
@@ -930,7 +1326,7 @@ $.ajax(settings).done(function (response) {
         "reception_lat": 480,
         "reception_lng": 480,
         "when": 480,
-        "is_public": true,
+        "privacy": 480,
         "image": "modi"
 },
     "headers": {
@@ -1009,8 +1405,8 @@ $.ajax(settings).done(function (response) {
 <td>optional</td>
 </tr>
 <tr>
-<td>is_public</td>
-<td>boolean</td>
+<td>privacy</td>
+<td>integer</td>
 <td>optional</td>
 </tr>
 <tr>

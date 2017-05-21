@@ -19,6 +19,327 @@ Welcome to the generated API reference.
 [Get Postman Collection](http://localhost/docs/collection.json)
 <!-- END_INFO -->
 
+#Engagement
+
+This module handles the creation, updating and deletion of
+engagements.
+
+Note: for an engagement to be created, we only require to have a couple and
+      these two have to have created an account with us.
+<!-- START_bcdb7863c3831e46bb710baf7dadb297 -->
+## Get one public engagement by id.
+
+Returns a public engagement given its id as a parameter.
+
+> Example request:
+
+```bash
+curl -X POST "http://i-doapp.com//api/engagement/get_one" \
+-H "Accept: application/json" \
+    -d "engagement_id"="772121753" \
+
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://i-doapp.com//api/engagement/get_one",
+    "method": "POST",
+    "data": {
+        "engagement_id": 772121753
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST /api/engagement/get_one`
+
+#### Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    engagement_id | integer |  required  | 
+
+<!-- END_bcdb7863c3831e46bb710baf7dadb297 -->
+
+<!-- START_a222e3482c977b9c139bfcd3208c1d8b -->
+## Get public engagements by page.
+
+Return all public engagements in pages with every page having 15 engagements.
+
+> Example request:
+
+```bash
+curl -X POST "http://i-doapp.com//api/engagement/get_paged" \
+-H "Accept: application/json" \
+    -d "page"="519" \
+
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://i-doapp.com//api/engagement/get_paged",
+    "method": "POST",
+    "data": {
+        "page": 519
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST /api/engagement/get_paged`
+
+#### Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    page | integer |  required  | 
+
+<!-- END_a222e3482c977b9c139bfcd3208c1d8b -->
+
+<!-- START_f1aabb6491c18132728616b8bb11355e -->
+## Create engagement.
+
+Note: Auth Required.
+
+This will create an engagement between two app users and return the engagement
+id on success. The user creating the engagement must either be the bride or
+the groom in the engagement.
+
+> Example request:
+
+```bash
+curl -X POST "http://i-doapp.com//api/engagement/create" \
+-H "Accept: application/json" \
+    -d "groom_id"="58" \
+    -d "bride_id"="58" \
+    -d "proposal_date"="58" \
+    -d "culture"="58" \
+    -d "proposal_lat"="58" \
+    -d "proposal_lng"="58" \
+    -d "image"="magnam" \
+    -d "phrase"="magnam" \
+    -d "type"="58" \
+    -d "privacy"="58" \
+
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://i-doapp.com//api/engagement/create",
+    "method": "POST",
+    "data": {
+        "groom_id": 58,
+        "bride_id": 58,
+        "proposal_date": 58,
+        "culture": 58,
+        "proposal_lat": 58,
+        "proposal_lng": 58,
+        "image": "magnam",
+        "phrase": "magnam",
+        "type": 58,
+        "privacy": 58
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST /api/engagement/create`
+
+#### Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    groom_id | integer |  required  | 
+    bride_id | integer |  required  | 
+    proposal_date | numeric |  optional  | 
+    culture | integer |  optional  | 
+    proposal_lat | numeric |  optional  | Required if the parameters `proposal_lng` are present.
+    proposal_lng | numeric |  optional  | Required if the parameters `proposal_lng` are present.
+    image | image |  optional  | Must be an image (jpeg, png, bmp, gif, or svg)
+    phrase | string |  optional  | 
+    type | integer |  optional  | 
+    privacy | integer |  optional  | 
+
+<!-- END_f1aabb6491c18132728616b8bb11355e -->
+
+<!-- START_6144b66ae57541e27c78677d69c9d4bc -->
+## Update engagement.
+
+Note: Auth Required.
+
+Updates this users engagement.
+
+> Example request:
+
+```bash
+curl -X POST "http://i-doapp.com//api/engagement/update" \
+-H "Accept: application/json" \
+    -d "groom_id"="6" \
+    -d "bride_id"="6" \
+    -d "proposal_date"="6" \
+    -d "culture"="6" \
+    -d "proposal_lat"="6" \
+    -d "proposal_lng"="6" \
+    -d "image"="perferendis" \
+    -d "phrase"="perferendis" \
+    -d "type"="6" \
+    -d "privacy"="6" \
+
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://i-doapp.com//api/engagement/update",
+    "method": "POST",
+    "data": {
+        "groom_id": 6,
+        "bride_id": 6,
+        "proposal_date": 6,
+        "culture": 6,
+        "proposal_lat": 6,
+        "proposal_lng": 6,
+        "image": "perferendis",
+        "phrase": "perferendis",
+        "type": 6,
+        "privacy": 6
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST /api/engagement/update`
+
+#### Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    groom_id | integer |  required  | 
+    bride_id | integer |  required  | 
+    proposal_date | numeric |  optional  | 
+    culture | integer |  optional  | 
+    proposal_lat | numeric |  optional  | Required if the parameters `proposal_lng` are present.
+    proposal_lng | numeric |  optional  | Required if the parameters `proposal_lng` are present.
+    image | image |  optional  | Must be an image (jpeg, png, bmp, gif, or svg)
+    phrase | string |  optional  | 
+    type | integer |  optional  | 
+    privacy | integer |  optional  | 
+
+<!-- END_6144b66ae57541e27c78677d69c9d4bc -->
+
+<!-- START_9dc7a9e7b43007917a52791a03478092 -->
+## Get this user&#039;s engagement.
+
+Note: Auth Required.
+
+Returns the authenticated user's engagement if found.
+
+> Example request:
+
+```bash
+curl -X POST "http://i-doapp.com//api/engagement/get" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://i-doapp.com//api/engagement/get",
+    "method": "POST",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST /api/engagement/get`
+
+
+<!-- END_9dc7a9e7b43007917a52791a03478092 -->
+
+<!-- START_50683e5d68ff9e630d6319761da83694 -->
+## Close user&#039;s engagement.
+
+Note: Auth Required.
+
+Closes the authenticated user's engagement.
+
+> Example request:
+
+```bash
+curl -X POST "http://i-doapp.com//api/engagement/close" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://i-doapp.com//api/engagement/close",
+    "method": "POST",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST /api/engagement/close`
+
+
+<!-- END_50683e5d68ff9e630d6319761da83694 -->
+
 #User
 
 This module will handle all the user manipulation including:
@@ -271,6 +592,8 @@ curl -X POST "http://i-doapp.com//api/user/search_paged" \
 -H "Accept: application/json" \
     -d "page"="94608" \
     -d "search_term"="dolorum" \
+    -d "gender"="female" \
+    -d "search_by"="email" \
 
 ```
 
@@ -282,7 +605,9 @@ var settings = {
     "method": "POST",
     "data": {
         "page": 94608,
-        "search_term": "dolorum"
+        "search_term": "dolorum",
+        "gender": "female",
+        "search_by": "email"
 },
     "headers": {
         "accept": "application/json"
@@ -304,6 +629,8 @@ Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
     page | integer |  required  | 
     search_term | string |  required  | 
+    gender | string |  required  | `male`, `female` or `both`
+    search_by | string |  required  | `name`, `email` or `both`
 
 <!-- END_5b028048ded09ef8d7b75cbb829d70c3 -->
 
@@ -701,7 +1028,8 @@ Parameter | Type | Status | Description
 Note: Auth Required.
 
 This will create a wedding between two app users and return the wedding
-id on success.
+id on success. The user creating the wedding must either be the bride or
+the groom in the wedding.
 
 > Example request:
 
@@ -718,7 +1046,7 @@ curl -X POST "http://i-doapp.com//api/wedding/create" \
     -d "reception_lat"="46398" \
     -d "reception_lng"="46398" \
     -d "when"="46398" \
-    -d "is_public"="1" \
+    -d "privacy"="46398" \
     -d "image"="rerum" \
 
 ```
@@ -740,7 +1068,7 @@ var settings = {
         "reception_lat": 46398,
         "reception_lng": 46398,
         "when": 46398,
-        "is_public": true,
+        "privacy": 46398,
         "image": "rerum"
 },
     "headers": {
@@ -771,7 +1099,7 @@ Parameter | Type | Status | Description
     reception_lat | numeric |  optional  | Required if the parameters `reception_lng` are present.
     reception_lng | numeric |  optional  | Required if the parameters `reception_lat` are present.
     when | numeric |  optional  | 
-    is_public | boolean |  optional  | 
+    privacy | numeric |  optional  | 
     image | image |  optional  | Must be an image (jpeg, png, bmp, gif, or svg)
 
 <!-- END_c1656cf4b0c0abf54a59393b6903898d -->
@@ -798,7 +1126,7 @@ curl -X POST "http://i-doapp.com//api/wedding/update" \
     -d "reception_lat"="480" \
     -d "reception_lng"="480" \
     -d "when"="480" \
-    -d "is_public"="1" \
+    -d "privacy"="480" \
     -d "image"="modi" \
 
 ```
@@ -820,7 +1148,7 @@ var settings = {
         "reception_lat": 480,
         "reception_lng": 480,
         "when": 480,
-        "is_public": true,
+        "privacy": 480,
         "image": "modi"
 },
     "headers": {
@@ -851,7 +1179,7 @@ Parameter | Type | Status | Description
     reception_lat | numeric |  optional  | Required if the parameters `reception_lng` are present.
     reception_lng | numeric |  optional  | Required if the parameters `reception_lat` are present.
     when | numeric |  optional  | 
-    is_public | boolean |  optional  | 
+    privacy | integer |  optional  | 
     image | image |  optional  | Must be an image (jpeg, png, bmp, gif, or svg)
 
 <!-- END_a980dbfae34220591a9b41d427ea08c8 -->
