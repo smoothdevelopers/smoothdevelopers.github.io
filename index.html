@@ -457,7 +457,6 @@ header e.g. &#039;Bearer eyJ0eXAiOiJKV1QiL...&#039;</p>
 -H "Accept: application/json" \
     -d "name"="ab" \
     -d "email"="ward.faye@example.com" \
-    -d "password_confirmation"="ab" \
     -d "password"="ab" \
     -d "gender"="male" \
     -d "profile_pic"="ab" \
@@ -470,7 +469,6 @@ header e.g. &#039;Bearer eyJ0eXAiOiJKV1QiL...&#039;</p>
     "data": {
         "name": "ab",
         "email": "ward.faye@example.com",
-        "password_confirmation": "ab",
         "password": "ab",
         "gender": "male",
         "profile_pic": "ab"
@@ -507,12 +505,6 @@ $.ajax(settings).done(function (response) {
 <td>email</td>
 <td>required</td>
 <td>Maximum: <code>255</code></td>
-</tr>
-<tr>
-<td>password_confirmation</td>
-<td>string</td>
-<td>required</td>
-<td>Minimum: <code>6</code></td>
 </tr>
 <tr>
 <td>password</td>

@@ -373,7 +373,6 @@ curl -X POST "http://i-doapp.com//api/user/register" \
 -H "Accept: application/json" \
     -d "name"="ab" \
     -d "email"="ward.faye@example.com" \
-    -d "password_confirmation"="ab" \
     -d "password"="ab" \
     -d "gender"="male" \
     -d "profile_pic"="ab" \
@@ -389,7 +388,6 @@ var settings = {
     "data": {
         "name": "ab",
         "email": "ward.faye@example.com",
-        "password_confirmation": "ab",
         "password": "ab",
         "gender": "male",
         "profile_pic": "ab"
@@ -414,7 +412,6 @@ Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
     name | string |  required  | Maximum: `255`
     email | email |  required  | Maximum: `255`
-    password_confirmation | string |  required  | Minimum: `6`
     password | string |  required  | Minimum: `6`
     gender | string |  required  | `male` or `female`
     profile_pic | image |  optional  | Must be an image (jpeg, png, bmp, gif, or svg)
