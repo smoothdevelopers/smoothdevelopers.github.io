@@ -1888,7 +1888,7 @@ $.ajax(settings).done(function (response) {
 
 <!-- END_1cff6a9e89def167de9d09a13dd2555d -->
 
-<!-- START_9c9260bd1ad91eb9aa21477f56d5ad8b -->
+<!-- START_db9b921b7df3edd956a8d31f9550084a -->
 ## User details.
 
 Note: Auth Required
@@ -1898,7 +1898,7 @@ Returns all the details of the currently logged in user.
 > Example request:
 
 ```bash
-curl -X GET "http://localhost:8000//api/user/get" \
+curl -X POST "http://localhost:8000//api/user/get" \
 -H "Accept: application/json"
 ```
 
@@ -1907,7 +1907,7 @@ var settings = {
     "async": true,
     "crossDomain": true,
     "url": "http://localhost:8000//api/user/get",
-    "method": "GET",
+    "method": "POST",
     "headers": {
         "accept": "application/json"
     }
@@ -1918,19 +1918,12 @@ $.ajax(settings).done(function (response) {
 });
 ```
 
-> Example response:
-
-```json
-null
-```
 
 ### HTTP Request
-`GET /api/user/get`
-
-`HEAD /api/user/get`
+`POST /api/user/get`
 
 
-<!-- END_9c9260bd1ad91eb9aa21477f56d5ad8b -->
+<!-- END_db9b921b7df3edd956a8d31f9550084a -->
 
 <!-- START_99dabfc22a317a2385dee642272a537e -->
 ## Update user details.

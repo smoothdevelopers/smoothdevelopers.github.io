@@ -2083,20 +2083,20 @@ $.ajax(settings).done(function (response) {
 <h3>HTTP Request</h3>
 <p><code>POST /api/user/refresh_token</code></p>
 <!-- END_1cff6a9e89def167de9d09a13dd2555d -->
-<!-- START_9c9260bd1ad91eb9aa21477f56d5ad8b -->
+<!-- START_db9b921b7df3edd956a8d31f9550084a -->
 <h2>User details.</h2>
 <p>Note: Auth Required</p>
 <p>Returns all the details of the currently logged in user.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET "http://localhost:8000//api/user/get" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/user/get" \
 -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
     "url": "http://localhost:8000//api/user/get",
-    "method": "GET",
+    "method": "POST",
     "headers": {
         "accept": "application/json"
     }
@@ -2105,14 +2105,9 @@ $.ajax(settings).done(function (response) {
 $.ajax(settings).done(function (response) {
     console.log(response);
 });</code></pre>
-<blockquote>
-<p>Example response:</p>
-</blockquote>
-<pre><code class="language-json">null</code></pre>
 <h3>HTTP Request</h3>
-<p><code>GET /api/user/get</code></p>
-<p><code>HEAD /api/user/get</code></p>
-<!-- END_9c9260bd1ad91eb9aa21477f56d5ad8b -->
+<p><code>POST /api/user/get</code></p>
+<!-- END_db9b921b7df3edd956a8d31f9550084a -->
 <!-- START_99dabfc22a317a2385dee642272a537e -->
 <h2>Update user details.</h2>
 <p>Note: Auth Required.</p>
