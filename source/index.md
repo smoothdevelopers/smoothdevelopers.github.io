@@ -21,114 +21,6 @@ Welcome to the generated API reference.
 
 #Engagement
 
-This module handles requests to I Do App information requests
-<!-- START_ccb8a3278186eb65798f182aa3252ac3 -->
-## About Information
-
-Retrive about us information HTML
-
-> Example request:
-
-```bash
-curl -X POST "http://localhost:8000//api/information/about" \
--H "Accept: application/json"
-```
-
-```javascript
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://localhost:8000//api/information/about",
-    "method": "POST",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
-```
-
-
-### HTTP Request
-`POST /api/information/about`
-
-
-<!-- END_ccb8a3278186eb65798f182aa3252ac3 -->
-
-<!-- START_3db50ef368aef78733f5b51486e56448 -->
-## Terms and Conditions
-
-Retrive terms and conditions information HTML
-
-> Example request:
-
-```bash
-curl -X POST "http://localhost:8000//api/information/terms" \
--H "Accept: application/json"
-```
-
-```javascript
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://localhost:8000//api/information/terms",
-    "method": "POST",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
-```
-
-
-### HTTP Request
-`POST /api/information/terms`
-
-
-<!-- END_3db50ef368aef78733f5b51486e56448 -->
-
-<!-- START_0598b6688135023a68076db8f17d7083 -->
-## Privacy Policy
-
-Retrive privacy policy information HTML
-
-> Example request:
-
-```bash
-curl -X POST "http://localhost:8000//api/information/policy" \
--H "Accept: application/json"
-```
-
-```javascript
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://localhost:8000//api/information/policy",
-    "method": "POST",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
-```
-
-
-### HTTP Request
-`POST /api/information/policy`
-
-
-<!-- END_0598b6688135023a68076db8f17d7083 -->
-
-#Engagement
-
 This module handles the creation, updating and deletion of
 engagements.
 
@@ -987,6 +879,114 @@ Parameter | Type | Status | Description
     user_id | integer |  required  | 
 
 <!-- END_39b2d61e91b23ce1b5f8648b5699d339 -->
+
+#Information
+
+This module handles requests to I Do App information requests
+<!-- START_ccb8a3278186eb65798f182aa3252ac3 -->
+## About Information
+
+Retrive about us information HTML
+
+> Example request:
+
+```bash
+curl -X POST "http://localhost:8000//api/information/about" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000//api/information/about",
+    "method": "POST",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST /api/information/about`
+
+
+<!-- END_ccb8a3278186eb65798f182aa3252ac3 -->
+
+<!-- START_3db50ef368aef78733f5b51486e56448 -->
+## Terms and Conditions
+
+Retrive terms and conditions information HTML
+
+> Example request:
+
+```bash
+curl -X POST "http://localhost:8000//api/information/terms" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000//api/information/terms",
+    "method": "POST",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST /api/information/terms`
+
+
+<!-- END_3db50ef368aef78733f5b51486e56448 -->
+
+<!-- START_0598b6688135023a68076db8f17d7083 -->
+## Privacy Policy
+
+Retrive privacy policy information HTML
+
+> Example request:
+
+```bash
+curl -X POST "http://localhost:8000//api/information/policy" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000//api/information/policy",
+    "method": "POST",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST /api/information/policy`
+
+
+<!-- END_0598b6688135023a68076db8f17d7083 -->
 
 #Inspiration
 

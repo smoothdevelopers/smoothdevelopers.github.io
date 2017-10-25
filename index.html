@@ -49,80 +49,6 @@
 <a href="http://localhost/docs/collection.json">Get Postman Collection</a></p>
 <!-- END_INFO -->
 <h1>Engagement</h1>
-<p>This module handles requests to I Do App information requests</p>
-<!-- START_ccb8a3278186eb65798f182aa3252ac3 -->
-<h2>About Information</h2>
-<p>Retrive about us information HTML</p>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
-<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/information/about" \
--H "Accept: application/json"</code></pre>
-<pre><code class="language-javascript">var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://localhost:8000//api/information/about",
-    "method": "POST",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});</code></pre>
-<h3>HTTP Request</h3>
-<p><code>POST /api/information/about</code></p>
-<!-- END_ccb8a3278186eb65798f182aa3252ac3 -->
-<!-- START_3db50ef368aef78733f5b51486e56448 -->
-<h2>Terms and Conditions</h2>
-<p>Retrive terms and conditions information HTML</p>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
-<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/information/terms" \
--H "Accept: application/json"</code></pre>
-<pre><code class="language-javascript">var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://localhost:8000//api/information/terms",
-    "method": "POST",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});</code></pre>
-<h3>HTTP Request</h3>
-<p><code>POST /api/information/terms</code></p>
-<!-- END_3db50ef368aef78733f5b51486e56448 -->
-<!-- START_0598b6688135023a68076db8f17d7083 -->
-<h2>Privacy Policy</h2>
-<p>Retrive privacy policy information HTML</p>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
-<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/information/policy" \
--H "Accept: application/json"</code></pre>
-<pre><code class="language-javascript">var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://localhost:8000//api/information/policy",
-    "method": "POST",
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});</code></pre>
-<h3>HTTP Request</h3>
-<p><code>POST /api/information/policy</code></p>
-<!-- END_0598b6688135023a68076db8f17d7083 -->
-<h1>Engagement</h1>
 <p>This module handles the creation, updating and deletion of
 engagements.</p>
 <p>Note: for an engagement to be created, we only require to have a couple and
@@ -1069,6 +995,80 @@ $.ajax(settings).done(function (response) {
 </tbody>
 </table>
 <!-- END_39b2d61e91b23ce1b5f8648b5699d339 -->
+<h1>Information</h1>
+<p>This module handles requests to I Do App information requests</p>
+<!-- START_ccb8a3278186eb65798f182aa3252ac3 -->
+<h2>About Information</h2>
+<p>Retrive about us information HTML</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/information/about" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000//api/information/about",
+    "method": "POST",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /api/information/about</code></p>
+<!-- END_ccb8a3278186eb65798f182aa3252ac3 -->
+<!-- START_3db50ef368aef78733f5b51486e56448 -->
+<h2>Terms and Conditions</h2>
+<p>Retrive terms and conditions information HTML</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/information/terms" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000//api/information/terms",
+    "method": "POST",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /api/information/terms</code></p>
+<!-- END_3db50ef368aef78733f5b51486e56448 -->
+<!-- START_0598b6688135023a68076db8f17d7083 -->
+<h2>Privacy Policy</h2>
+<p>Retrive privacy policy information HTML</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/information/policy" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:8000//api/information/policy",
+    "method": "POST",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST /api/information/policy</code></p>
+<!-- END_0598b6688135023a68076db8f17d7083 -->
 <h1>Inspiration</h1>
 <p>This module handles the creation, updating and deletion of
 inspiration media.</p>
