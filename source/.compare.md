@@ -23,7 +23,25 @@ Welcome to the generated API reference.
 
 This module handles the creation, updating and deletion of
 engagements.
+The following represents the different options for an engagement:
 
+### Culture
+| Culture     | Value|
+|-------------|-------------:|
+| christian   | 0|
+| hindu       | 1|
+| muslim      | 2|
+| traditional | 3|
+ 
+### Privacy
+| Privacy     | Value|
+|-------------|-------------:|
+| private     | 0|
+| invited     | 1|
+| public      | 2|
+
+For privacy, the invited value indicates that only the invited guests have access
+to seeing this engagement 
 Note: for an engagement to be created, we only require to have a couple and
       these two have to have created an account with us.
 <!-- START_bcdb7863c3831e46bb710baf7dadb297 -->
@@ -130,12 +148,15 @@ the groom in the engagement.
 ```bash
 curl -X POST "http://localhost:8000//api/engagement/create" \
 -H "Accept: application/json" \
+    -d "surprise_other"="magnam" \
+    -d "proposal_plan"="magnam" \
     -d "groom_id"="58" \
     -d "bride_id"="58" \
-    -d "proposal_date"="magnam" \
+    -d "proposal_date"="1981-12-17" \
     -d "culture"="58" \
     -d "proposal_lat"="58" \
     -d "proposal_lng"="58" \
+    -d "proposal_place"="magnam" \
     -d "image"="magnam" \
     -d "phrase"="magnam" \
     -d "type"="58" \
@@ -150,12 +171,15 @@ var settings = {
     "url": "http://localhost:8000//api/engagement/create",
     "method": "POST",
     "data": {
+        "surprise_other": "magnam",
+        "proposal_plan": "magnam",
         "groom_id": 58,
         "bride_id": 58,
-        "proposal_date": "magnam",
+        "proposal_date": "1981-12-17",
         "culture": 58,
         "proposal_lat": 58,
         "proposal_lng": 58,
+        "proposal_place": "magnam",
         "image": "magnam",
         "phrase": "magnam",
         "type": 58,
@@ -179,12 +203,15 @@ $.ajax(settings).done(function (response) {
 
 Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
-    groom_id | integer |  required  | 
-    bride_id | integer |  required  | 
-    proposal_date | string |  optional  | Must match this regular expression: `/[0-9]{1,4}-[0-9]{1,2}-[0-9]{1,2} [0-9]{1,2}:[0-9]{1,2}/`
+    surprise_other | string |  optional  | 
+    proposal_plan | string |  optional  | 
+    groom_id | integer |  optional  | Required if the parameters `surprise_other` are not present.
+    bride_id | integer |  optional  | Required if the parameters `surprise_other` are not present.
+    proposal_date | date |  optional  | 
     culture | integer |  optional  | 
     proposal_lat | numeric |  optional  | Required if the parameters `proposal_lng` are present.
     proposal_lng | numeric |  optional  | Required if the parameters `proposal_lat` are present.
+    proposal_place | string |  optional  | 
     image | image |  optional  | Must be an image (jpeg, png, bmp, gif, or svg)
     phrase | string |  optional  | 
     type | integer |  optional  | 
@@ -204,12 +231,15 @@ Updates this users engagement.
 ```bash
 curl -X POST "http://localhost:8000//api/engagement/update" \
 -H "Accept: application/json" \
+    -d "surprise_other"="perferendis" \
+    -d "proposal_plan"="perferendis" \
     -d "groom_id"="6" \
     -d "bride_id"="6" \
-    -d "proposal_date"="perferendis" \
+    -d "proposal_date"="1970-08-08" \
     -d "culture"="6" \
     -d "proposal_lat"="6" \
     -d "proposal_lng"="6" \
+    -d "proposal_place"="perferendis" \
     -d "image"="perferendis" \
     -d "phrase"="perferendis" \
     -d "type"="6" \
@@ -224,12 +254,15 @@ var settings = {
     "url": "http://localhost:8000//api/engagement/update",
     "method": "POST",
     "data": {
+        "surprise_other": "perferendis",
+        "proposal_plan": "perferendis",
         "groom_id": 6,
         "bride_id": 6,
-        "proposal_date": "perferendis",
+        "proposal_date": "1970-08-08",
         "culture": 6,
         "proposal_lat": 6,
         "proposal_lng": 6,
+        "proposal_place": "perferendis",
         "image": "perferendis",
         "phrase": "perferendis",
         "type": 6,
@@ -253,12 +286,15 @@ $.ajax(settings).done(function (response) {
 
 Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
-    groom_id | integer |  required  | 
-    bride_id | integer |  required  | 
-    proposal_date | string |  optional  | Must match this regular expression: `/[0-9]{1,4}-[0-9]{1,2}-[0-9]{1,2} [0-9]{1,2}:[0-9]{1,2}/`
+    surprise_other | string |  optional  | 
+    proposal_plan | string |  optional  | 
+    groom_id | integer |  required  | Required if the parameters `surprise_other` are not present.
+    bride_id | integer |  required  | Required if the parameters `surprise_other` are not present.
+    proposal_date | date |  optional  | 
     culture | integer |  optional  | 
     proposal_lat | numeric |  optional  | Required if the parameters `proposal_lng` are present.
     proposal_lng | numeric |  optional  | Required if the parameters `proposal_lat` are present.
+    proposal_place | string |  optional  | 
     image | image |  optional  | Must be an image (jpeg, png, bmp, gif, or svg)
     phrase | string |  optional  | 
     type | integer |  optional  | 

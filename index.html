@@ -50,8 +50,61 @@
 <!-- END_INFO -->
 <h1>Engagement</h1>
 <p>This module handles the creation, updating and deletion of
-engagements.</p>
-<p>Note: for an engagement to be created, we only require to have a couple and
+engagements.
+The following represents the different options for an engagement:</p>
+<h3>Culture</h3>
+<table>
+<thead>
+<tr>
+<th>Culture</th>
+<th style="text-align: right;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>christian</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>hindu</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td>muslim</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr>
+<td>traditional</td>
+<td style="text-align: right;">3</td>
+</tr>
+</tbody>
+</table>
+<h3>Privacy</h3>
+<table>
+<thead>
+<tr>
+<th>Privacy</th>
+<th style="text-align: right;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>private</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>invited</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td>public</td>
+<td style="text-align: right;">2</td>
+</tr>
+</tbody>
+</table>
+<p>For privacy, the invited value indicates that only the invited guests have access
+to seeing this engagement
+Note: for an engagement to be created, we only require to have a couple and
 these two have to have created an account with us.</p>
 <!-- START_bcdb7863c3831e46bb710baf7dadb297 -->
 <h2>Get one public engagement by id.</h2>
@@ -158,12 +211,15 @@ the groom in the engagement.</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST "http://localhost:8000//api/engagement/create" \
 -H "Accept: application/json" \
+    -d "surprise_other"="magnam" \
+    -d "proposal_plan"="magnam" \
     -d "groom_id"="58" \
     -d "bride_id"="58" \
-    -d "proposal_date"="magnam" \
+    -d "proposal_date"="1981-12-17" \
     -d "culture"="58" \
     -d "proposal_lat"="58" \
     -d "proposal_lng"="58" \
+    -d "proposal_place"="magnam" \
     -d "image"="magnam" \
     -d "phrase"="magnam" \
     -d "type"="58" \
@@ -175,12 +231,15 @@ the groom in the engagement.</p>
     "url": "http://localhost:8000//api/engagement/create",
     "method": "POST",
     "data": {
+        "surprise_other": "magnam",
+        "proposal_plan": "magnam",
         "groom_id": 58,
         "bride_id": 58,
-        "proposal_date": "magnam",
+        "proposal_date": "1981-12-17",
         "culture": 58,
         "proposal_lat": 58,
         "proposal_lng": 58,
+        "proposal_place": "magnam",
         "image": "magnam",
         "phrase": "magnam",
         "type": 58,
@@ -208,20 +267,31 @@ $.ajax(settings).done(function (response) {
 </thead>
 <tbody>
 <tr>
+<td>surprise_other</td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>proposal_plan</td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
 <td>groom_id</td>
 <td>integer</td>
-<td>required</td>
+<td>optional</td>
+<td>Required if the parameters <code>surprise_other</code> are not present.</td>
 </tr>
 <tr>
 <td>bride_id</td>
 <td>integer</td>
-<td>required</td>
+<td>optional</td>
+<td>Required if the parameters <code>surprise_other</code> are not present.</td>
 </tr>
 <tr>
 <td>proposal_date</td>
-<td>string</td>
+<td>date</td>
 <td>optional</td>
-<td>Must match this regular expression: <code>/[0-9]{1,4}-[0-9]{1,2}-[0-9]{1,2} [0-9]{1,2}:[0-9]{1,2}/</code></td>
 </tr>
 <tr>
 <td>culture</td>
@@ -239,6 +309,11 @@ $.ajax(settings).done(function (response) {
 <td>numeric</td>
 <td>optional</td>
 <td>Required if the parameters <code>proposal_lat</code> are present.</td>
+</tr>
+<tr>
+<td>proposal_place</td>
+<td>string</td>
+<td>optional</td>
 </tr>
 <tr>
 <td>image</td>
@@ -273,12 +348,15 @@ $.ajax(settings).done(function (response) {
 </blockquote>
 <pre><code class="language-bash">curl -X POST "http://localhost:8000//api/engagement/update" \
 -H "Accept: application/json" \
+    -d "surprise_other"="perferendis" \
+    -d "proposal_plan"="perferendis" \
     -d "groom_id"="6" \
     -d "bride_id"="6" \
-    -d "proposal_date"="perferendis" \
+    -d "proposal_date"="1970-08-08" \
     -d "culture"="6" \
     -d "proposal_lat"="6" \
     -d "proposal_lng"="6" \
+    -d "proposal_place"="perferendis" \
     -d "image"="perferendis" \
     -d "phrase"="perferendis" \
     -d "type"="6" \
@@ -290,12 +368,15 @@ $.ajax(settings).done(function (response) {
     "url": "http://localhost:8000//api/engagement/update",
     "method": "POST",
     "data": {
+        "surprise_other": "perferendis",
+        "proposal_plan": "perferendis",
         "groom_id": 6,
         "bride_id": 6,
-        "proposal_date": "perferendis",
+        "proposal_date": "1970-08-08",
         "culture": 6,
         "proposal_lat": 6,
         "proposal_lng": 6,
+        "proposal_place": "perferendis",
         "image": "perferendis",
         "phrase": "perferendis",
         "type": 6,
@@ -323,20 +404,31 @@ $.ajax(settings).done(function (response) {
 </thead>
 <tbody>
 <tr>
+<td>surprise_other</td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>proposal_plan</td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
 <td>groom_id</td>
 <td>integer</td>
 <td>required</td>
+<td>Required if the parameters <code>surprise_other</code> are not present.</td>
 </tr>
 <tr>
 <td>bride_id</td>
 <td>integer</td>
 <td>required</td>
+<td>Required if the parameters <code>surprise_other</code> are not present.</td>
 </tr>
 <tr>
 <td>proposal_date</td>
-<td>string</td>
+<td>date</td>
 <td>optional</td>
-<td>Must match this regular expression: <code>/[0-9]{1,4}-[0-9]{1,2}-[0-9]{1,2} [0-9]{1,2}:[0-9]{1,2}/</code></td>
 </tr>
 <tr>
 <td>culture</td>
@@ -354,6 +446,11 @@ $.ajax(settings).done(function (response) {
 <td>numeric</td>
 <td>optional</td>
 <td>Required if the parameters <code>proposal_lat</code> are present.</td>
+</tr>
+<tr>
+<td>proposal_place</td>
+<td>string</td>
+<td>optional</td>
 </tr>
 <tr>
 <td>image</td>
