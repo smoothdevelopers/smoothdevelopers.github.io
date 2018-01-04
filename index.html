@@ -102,13 +102,36 @@ The following represents the different options for an engagement:</p>
 </tr>
 </tbody>
 </table>
+<h3>Acceptance</h3>
+<table>
+<thead>
+<tr>
+<th>Privacy</th>
+<th style="text-align: right;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pending</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>rejected</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td>accepted</td>
+<td style="text-align: right;">2</td>
+</tr>
+</tbody>
+</table>
 <p>For privacy, the invited value indicates that only the invited guests have access
-to seeing this engagement
-Note: for an engagement to be created, we only require to have a couple and
-these two have to have created an account with us.</p>
+to seeing this engagement.</p>
+<p>The acceptance holds the state of the engagement after creation, this will allow
+the user involved in the engagement to accept it or reject it.</p>
 <!-- START_bcdb7863c3831e46bb710baf7dadb297 -->
 <h2>Get one public engagement by id.</h2>
-<p>Returns a public engagement given its id as a parameter.</p>
+<p>Returns a public accepted engagement given its id as a parameter.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -155,7 +178,7 @@ $.ajax(settings).done(function (response) {
 <!-- END_bcdb7863c3831e46bb710baf7dadb297 -->
 <!-- START_a222e3482c977b9c139bfcd3208c1d8b -->
 <h2>Get public engagements by page.</h2>
-<p>Return all public engagements in pages with every page having 15 engagements.</p>
+<p>Return all public accepted engagements in pages with every page having 15 engagements.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -215,7 +238,7 @@ the groom in the engagement.</p>
     -d "proposal_plan"="magnam" \
     -d "groom_id"="58" \
     -d "bride_id"="58" \
-    -d "proposal_date"="1981-12-17" \
+    -d "proposal_date"="1982-01-02" \
     -d "culture"="58" \
     -d "proposal_lat"="58" \
     -d "proposal_lng"="58" \
@@ -235,7 +258,7 @@ the groom in the engagement.</p>
         "proposal_plan": "magnam",
         "groom_id": 58,
         "bride_id": 58,
-        "proposal_date": "1981-12-17",
+        "proposal_date": "1982-01-02",
         "culture": 58,
         "proposal_lat": 58,
         "proposal_lng": 58,
@@ -352,7 +375,7 @@ $.ajax(settings).done(function (response) {
     -d "proposal_plan"="perferendis" \
     -d "groom_id"="6" \
     -d "bride_id"="6" \
-    -d "proposal_date"="1970-08-08" \
+    -d "proposal_date"="1970-08-09" \
     -d "culture"="6" \
     -d "proposal_lat"="6" \
     -d "proposal_lng"="6" \
@@ -372,7 +395,7 @@ $.ajax(settings).done(function (response) {
         "proposal_plan": "perferendis",
         "groom_id": 6,
         "bride_id": 6,
-        "proposal_date": "1970-08-08",
+        "proposal_date": "1970-08-09",
         "culture": 6,
         "proposal_lat": 6,
         "proposal_lng": 6,
@@ -1928,8 +1951,8 @@ $.ajax(settings).done(function (response) {
 <h1>User</h1>
 <p>This module will handle all the user manipulation including:</p>
 <ol>
-<li>Registration  - with Facebook or email and password.</li>
-<li>Authentication - with Facebook ID or email and password.</li>
+<li>Registration  - with Facebook or phone number.</li>
+<li>Authentication - with Facebook ID or phone number.</li>
 <li>User details - access to logged in user&#039;s details.</li>
 <li>Assigning tokens - will assign new API access tokens for
 an already logged in user.</li>
@@ -1945,16 +1968,15 @@ header e.g. &#039;Bearer eyJ0eXAiOiJKV1QiL...&#039;</p>
 <p>If you try to access an endpoint without the correct Bearer token you will get
 : The token has been blacklisted</p>
 <!-- START_9b706bcb7d78cfacbf8e5e3e7d8afe2b -->
-<h2>Register with email and password.</h2>
-<p>Will register the user with an email and password.</p>
+<h2>Register with phone.</h2>
+<p>Will register the user with a phone number.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST "http://localhost:8000//api/user/register" \
 -H "Accept: application/json" \
     -d "name"="ab" \
-    -d "email"="ward.faye@example.com" \
-    -d "password"="ab" \
+    -d "phone"="ab" \
     -d "gender"="male" \
     -d "profile_pic"="ab" \
 </code></pre>
@@ -1965,8 +1987,7 @@ header e.g. &#039;Bearer eyJ0eXAiOiJKV1QiL...&#039;</p>
     "method": "POST",
     "data": {
         "name": "ab",
-        "email": "ward.faye@example.com",
-        "password": "ab",
+        "phone": "ab",
         "gender": "male",
         "profile_pic": "ab"
 },
@@ -1998,16 +2019,9 @@ $.ajax(settings).done(function (response) {
 <td>Maximum: <code>255</code></td>
 </tr>
 <tr>
-<td>email</td>
-<td>email</td>
-<td>required</td>
-<td>Maximum: <code>255</code></td>
-</tr>
-<tr>
-<td>password</td>
+<td>phone</td>
 <td>string</td>
 <td>required</td>
-<td>Minimum: <code>6</code></td>
 </tr>
 <tr>
 <td>gender</td>
@@ -2025,15 +2039,14 @@ $.ajax(settings).done(function (response) {
 </table>
 <!-- END_9b706bcb7d78cfacbf8e5e3e7d8afe2b -->
 <!-- START_96e41001d85ca072dc79e94397b6f2e3 -->
-<h2>Login with email and password.</h2>
-<p>Will login a user with their email and password and return a token.</p>
+<h2>Login with phone number.</h2>
+<p>Will login a user with their phone number and return a token.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST "http://localhost:8000//api/user/login" \
 -H "Accept: application/json" \
-    -d "email"="joanne.muller@example.com" \
-    -d "password"="ut" \
+    -d "phone"="ut" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
@@ -2041,8 +2054,7 @@ $.ajax(settings).done(function (response) {
     "url": "http://localhost:8000//api/user/login",
     "method": "POST",
     "data": {
-        "email": "joanne.muller@example.com",
-        "password": "ut"
+        "phone": "ut"
 },
     "headers": {
         "accept": "application/json"
@@ -2066,12 +2078,7 @@ $.ajax(settings).done(function (response) {
 </thead>
 <tbody>
 <tr>
-<td>email</td>
-<td>email</td>
-<td>required</td>
-</tr>
-<tr>
-<td>password</td>
+<td>phone</td>
 <td>string</td>
 <td>required</td>
 </tr>
@@ -2092,7 +2099,7 @@ will be expected.</p>
 -H "Accept: application/json" \
     -d "fb_id"="sed" \
     -d "name"="sed" \
-    -d "email"="hand.micaela@example.com" \
+    -d "phone"="sed" \
     -d "gender"="male" \
     -d "profile_pic"="sed" \
 </code></pre>
@@ -2104,7 +2111,7 @@ will be expected.</p>
     "data": {
         "fb_id": "sed",
         "name": "sed",
-        "email": "hand.micaela@example.com",
+        "phone": "sed",
         "gender": "male",
         "profile_pic": "sed"
 },
@@ -2140,8 +2147,8 @@ $.ajax(settings).done(function (response) {
 <td>optional</td>
 </tr>
 <tr>
-<td>email</td>
-<td>email</td>
+<td>phone</td>
+<td>string</td>
 <td>optional</td>
 </tr>
 <tr>
@@ -2160,7 +2167,7 @@ $.ajax(settings).done(function (response) {
 </table>
 <!-- END_5185b1c08ff9fc05d72653d65ed7ed67 -->
 <!-- START_5b028048ded09ef8d7b75cbb829d70c3 -->
-<h2>Search users by name or email.</h2>
+<h2>Search users by name or phone.</h2>
 <p>This will search and return a list of users in pages.</p>
 <blockquote>
 <p>Example request:</p>
@@ -2170,7 +2177,7 @@ $.ajax(settings).done(function (response) {
     -d "page"="94608" \
     -d "search_term"="dolorum" \
     -d "gender"="female" \
-    -d "search_by"="email" \
+    -d "search_by"="phone" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
@@ -2181,7 +2188,7 @@ $.ajax(settings).done(function (response) {
         "page": 94608,
         "search_term": "dolorum",
         "gender": "female",
-        "search_by": "email"
+        "search_by": "phone"
 },
     "headers": {
         "accept": "application/json"
@@ -2224,7 +2231,7 @@ $.ajax(settings).done(function (response) {
 <td>search_by</td>
 <td>string</td>
 <td>required</td>
-<td><code>name</code>, <code>email</code> or <code>both</code></td>
+<td><code>name</code>, <code>phone</code> or <code>both</code></td>
 </tr>
 </tbody>
 </table>
@@ -2290,7 +2297,7 @@ $.ajax(settings).done(function (response) {
 -H "Accept: application/json" \
     -d "name"="culpa" \
     -d "gender"="female" \
-    -d "email"="myrtice65@example.net" \
+    -d "phone"="culpa" \
     -d "fb_id"="culpa" \
     -d "profile_pic"="culpa" \
 </code></pre>
@@ -2302,7 +2309,7 @@ $.ajax(settings).done(function (response) {
     "data": {
         "name": "culpa",
         "gender": "female",
-        "email": "myrtice65@example.net",
+        "phone": "culpa",
         "fb_id": "culpa",
         "profile_pic": "culpa"
 },
@@ -2340,8 +2347,8 @@ $.ajax(settings).done(function (response) {
 <td><code>male</code> or <code>female</code></td>
 </tr>
 <tr>
-<td>email</td>
-<td>email</td>
+<td>phone</td>
+<td>string</td>
 <td>required</td>
 </tr>
 <tr>
@@ -2358,92 +2365,20 @@ $.ajax(settings).done(function (response) {
 </tbody>
 </table>
 <!-- END_99dabfc22a317a2385dee642272a537e -->
-<!-- START_a93d6745597660d48aea8c2249b67600 -->
-<h2>Update user password</h2>
-<p>Note: Auth Required.</p>
-<p>This will update the password of an already logged in user. This user
-must have been registered using an email and password.</p>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
-<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/user/update_password" \
--H "Accept: application/json" \
-    -d "old_password"="dicta" \
-    -d "password_confirmation"="dicta" \
-    -d "password"="dicta" \
-</code></pre>
-<pre><code class="language-javascript">var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://localhost:8000//api/user/update_password",
-    "method": "POST",
-    "data": {
-        "old_password": "dicta",
-        "password_confirmation": "dicta",
-        "password": "dicta"
-},
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});</code></pre>
-<h3>HTTP Request</h3>
-<p><code>POST /api/user/update_password</code></p>
-<h4>Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Status</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>old_password</td>
-<td>string</td>
-<td>required</td>
-<td>Minimum: <code>6</code></td>
-</tr>
-<tr>
-<td>password_confirmation</td>
-<td>string</td>
-<td>required</td>
-<td>Minimum: <code>6</code></td>
-</tr>
-<tr>
-<td>password</td>
-<td>string</td>
-<td>required</td>
-<td>Minimum: <code>6</code></td>
-</tr>
-</tbody>
-</table>
-<!-- END_a93d6745597660d48aea8c2249b67600 -->
 <!-- START_8e2bcf97ca2b0da97a00d74ce5c0dddc -->
 <h2>Logout the user.</h2>
 <p>Note: Auth Required.</p>
-<p>Will logout the logged in user and close the session.
-The token is required.</p>
+<p>Will logout the logged in user and close the session.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST "http://localhost:8000//api/user/logout" \
--H "Accept: application/json" \
-    -d "token"="quia" \
-</code></pre>
+-H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
     "url": "http://localhost:8000//api/user/logout",
     "method": "POST",
-    "data": {
-        "token": "quia"
-},
     "headers": {
         "accept": "application/json"
     }
@@ -2454,24 +2389,6 @@ $.ajax(settings).done(function (response) {
 });</code></pre>
 <h3>HTTP Request</h3>
 <p><code>POST /api/user/logout</code></p>
-<h4>Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Status</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>token</td>
-<td>string</td>
-<td>required</td>
-</tr>
-</tbody>
-</table>
 <!-- END_8e2bcf97ca2b0da97a00d74ce5c0dddc -->
 <!-- START_901f22c468bb4f7946c10670b088ad93 -->
 <h2>Close user account.</h2>

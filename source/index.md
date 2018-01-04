@@ -40,14 +40,22 @@ The following represents the different options for an engagement:
 | invited     | 1|
 | public      | 2|
 
+### Acceptance
+| Privacy     | Value|
+|-------------|-------------:|
+| pending     | 0|
+| rejected    | 1|
+| accepted    | 2|
+
 For privacy, the invited value indicates that only the invited guests have access
-to seeing this engagement 
-Note: for an engagement to be created, we only require to have a couple and
-      these two have to have created an account with us.
+to seeing this engagement.
+
+The acceptance holds the state of the engagement after creation, this will allow
+the user involved in the engagement to accept it or reject it.
 <!-- START_bcdb7863c3831e46bb710baf7dadb297 -->
 ## Get one public engagement by id.
 
-Returns a public engagement given its id as a parameter.
+Returns a public accepted engagement given its id as a parameter.
 
 > Example request:
 
@@ -92,7 +100,7 @@ Parameter | Type | Status | Description
 <!-- START_a222e3482c977b9c139bfcd3208c1d8b -->
 ## Get public engagements by page.
 
-Return all public engagements in pages with every page having 15 engagements.
+Return all public accepted engagements in pages with every page having 15 engagements.
 
 > Example request:
 
@@ -152,7 +160,7 @@ curl -X POST "http://localhost:8000//api/engagement/create" \
     -d "proposal_plan"="magnam" \
     -d "groom_id"="58" \
     -d "bride_id"="58" \
-    -d "proposal_date"="1981-12-17" \
+    -d "proposal_date"="1982-01-02" \
     -d "culture"="58" \
     -d "proposal_lat"="58" \
     -d "proposal_lng"="58" \
@@ -175,7 +183,7 @@ var settings = {
         "proposal_plan": "magnam",
         "groom_id": 58,
         "bride_id": 58,
-        "proposal_date": "1981-12-17",
+        "proposal_date": "1982-01-02",
         "culture": 58,
         "proposal_lat": 58,
         "proposal_lng": 58,
@@ -235,7 +243,7 @@ curl -X POST "http://localhost:8000//api/engagement/update" \
     -d "proposal_plan"="perferendis" \
     -d "groom_id"="6" \
     -d "bride_id"="6" \
-    -d "proposal_date"="1970-08-08" \
+    -d "proposal_date"="1970-08-09" \
     -d "culture"="6" \
     -d "proposal_lat"="6" \
     -d "proposal_lng"="6" \
@@ -258,7 +266,7 @@ var settings = {
         "proposal_plan": "perferendis",
         "groom_id": 6,
         "bride_id": 6,
-        "proposal_date": "1970-08-08",
+        "proposal_date": "1970-08-09",
         "culture": 6,
         "proposal_lat": 6,
         "proposal_lng": 6,
@@ -1757,8 +1765,8 @@ $.ajax(settings).done(function (response) {
 #User
 
 This module will handle all the user manipulation including:
-1. Registration  - with Facebook or email and password.
-2. Authentication - with Facebook ID or email and password.
+1. Registration  - with Facebook or phone number.
+2. Authentication - with Facebook ID or phone number.
 3. User details - access to logged in user&#039;s details.
 4. Assigning tokens - will assign new API access tokens for
     an already logged in user.
@@ -1775,9 +1783,9 @@ header e.g. &#039;Bearer eyJ0eXAiOiJKV1QiL...&#039;
 If you try to access an endpoint without the correct Bearer token you will get
 : The token has been blacklisted
 <!-- START_9b706bcb7d78cfacbf8e5e3e7d8afe2b -->
-## Register with email and password.
+## Register with phone.
 
-Will register the user with an email and password.
+Will register the user with a phone number.
 
 > Example request:
 
@@ -1785,8 +1793,7 @@ Will register the user with an email and password.
 curl -X POST "http://localhost:8000//api/user/register" \
 -H "Accept: application/json" \
     -d "name"="ab" \
-    -d "email"="ward.faye@example.com" \
-    -d "password"="ab" \
+    -d "phone"="ab" \
     -d "gender"="male" \
     -d "profile_pic"="ab" \
 
@@ -1800,8 +1807,7 @@ var settings = {
     "method": "POST",
     "data": {
         "name": "ab",
-        "email": "ward.faye@example.com",
-        "password": "ab",
+        "phone": "ab",
         "gender": "male",
         "profile_pic": "ab"
 },
@@ -1824,25 +1830,23 @@ $.ajax(settings).done(function (response) {
 Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
     name | string |  required  | Maximum: `255`
-    email | email |  required  | Maximum: `255`
-    password | string |  required  | Minimum: `6`
+    phone | string |  required  | 
     gender | string |  required  | `male` or `female`
     profile_pic | image |  optional  | Must be an image (jpeg, png, bmp, gif, or svg)
 
 <!-- END_9b706bcb7d78cfacbf8e5e3e7d8afe2b -->
 
 <!-- START_96e41001d85ca072dc79e94397b6f2e3 -->
-## Login with email and password.
+## Login with phone number.
 
-Will login a user with their email and password and return a token.
+Will login a user with their phone number and return a token.
 
 > Example request:
 
 ```bash
 curl -X POST "http://localhost:8000//api/user/login" \
 -H "Accept: application/json" \
-    -d "email"="joanne.muller@example.com" \
-    -d "password"="ut" \
+    -d "phone"="ut" \
 
 ```
 
@@ -1853,8 +1857,7 @@ var settings = {
     "url": "http://localhost:8000//api/user/login",
     "method": "POST",
     "data": {
-        "email": "joanne.muller@example.com",
-        "password": "ut"
+        "phone": "ut"
 },
     "headers": {
         "accept": "application/json"
@@ -1874,8 +1877,7 @@ $.ajax(settings).done(function (response) {
 
 Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
-    email | email |  required  | 
-    password | string |  required  | 
+    phone | string |  required  | 
 
 <!-- END_96e41001d85ca072dc79e94397b6f2e3 -->
 
@@ -1896,7 +1898,7 @@ curl -X POST "http://localhost:8000//api/user/login_fb" \
 -H "Accept: application/json" \
     -d "fb_id"="sed" \
     -d "name"="sed" \
-    -d "email"="hand.micaela@example.com" \
+    -d "phone"="sed" \
     -d "gender"="male" \
     -d "profile_pic"="sed" \
 
@@ -1911,7 +1913,7 @@ var settings = {
     "data": {
         "fb_id": "sed",
         "name": "sed",
-        "email": "hand.micaela@example.com",
+        "phone": "sed",
         "gender": "male",
         "profile_pic": "sed"
 },
@@ -1935,14 +1937,14 @@ Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
     fb_id | string |  required  | 
     name | string |  optional  | 
-    email | email |  optional  | 
+    phone | string |  optional  | 
     gender | string |  optional  | `male` or `female`
     profile_pic | image |  optional  | Must be an image (jpeg, png, bmp, gif, or svg)
 
 <!-- END_5185b1c08ff9fc05d72653d65ed7ed67 -->
 
 <!-- START_5b028048ded09ef8d7b75cbb829d70c3 -->
-## Search users by name or email.
+## Search users by name or phone.
 
 This will search and return a list of users in pages.
 
@@ -1954,7 +1956,7 @@ curl -X POST "http://localhost:8000//api/user/search_paged" \
     -d "page"="94608" \
     -d "search_term"="dolorum" \
     -d "gender"="female" \
-    -d "search_by"="email" \
+    -d "search_by"="phone" \
 
 ```
 
@@ -1968,7 +1970,7 @@ var settings = {
         "page": 94608,
         "search_term": "dolorum",
         "gender": "female",
-        "search_by": "email"
+        "search_by": "phone"
 },
     "headers": {
         "accept": "application/json"
@@ -1991,7 +1993,7 @@ Parameter | Type | Status | Description
     page | integer |  required  | 
     search_term | string |  required  | 
     gender | string |  required  | `male`, `female` or `both`
-    search_by | string |  required  | `name`, `email` or `both`
+    search_by | string |  required  | `name`, `phone` or `both`
 
 <!-- END_5b028048ded09ef8d7b75cbb829d70c3 -->
 
@@ -2083,7 +2085,7 @@ curl -X POST "http://localhost:8000//api/user/update" \
 -H "Accept: application/json" \
     -d "name"="culpa" \
     -d "gender"="female" \
-    -d "email"="myrtice65@example.net" \
+    -d "phone"="culpa" \
     -d "fb_id"="culpa" \
     -d "profile_pic"="culpa" \
 
@@ -2098,7 +2100,7 @@ var settings = {
     "data": {
         "name": "culpa",
         "gender": "female",
-        "email": "myrtice65@example.net",
+        "phone": "culpa",
         "fb_id": "culpa",
         "profile_pic": "culpa"
 },
@@ -2122,65 +2124,11 @@ Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
     name | string |  required  | Maximum: `255`
     gender | string |  required  | `male` or `female`
-    email | email |  required  | 
+    phone | string |  required  | 
     fb_id | string |  optional  | 
     profile_pic | image |  optional  | Must be an image (jpeg, png, bmp, gif, or svg)
 
 <!-- END_99dabfc22a317a2385dee642272a537e -->
-
-<!-- START_a93d6745597660d48aea8c2249b67600 -->
-## Update user password
-
-Note: Auth Required.
-
-This will update the password of an already logged in user. This user
-must have been registered using an email and password.
-
-> Example request:
-
-```bash
-curl -X POST "http://localhost:8000//api/user/update_password" \
--H "Accept: application/json" \
-    -d "old_password"="dicta" \
-    -d "password_confirmation"="dicta" \
-    -d "password"="dicta" \
-
-```
-
-```javascript
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://localhost:8000//api/user/update_password",
-    "method": "POST",
-    "data": {
-        "old_password": "dicta",
-        "password_confirmation": "dicta",
-        "password": "dicta"
-},
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
-```
-
-
-### HTTP Request
-`POST /api/user/update_password`
-
-#### Parameters
-
-Parameter | Type | Status | Description
---------- | ------- | ------- | ------- | -----------
-    old_password | string |  required  | Minimum: `6`
-    password_confirmation | string |  required  | Minimum: `6`
-    password | string |  required  | Minimum: `6`
-
-<!-- END_a93d6745597660d48aea8c2249b67600 -->
 
 <!-- START_8e2bcf97ca2b0da97a00d74ce5c0dddc -->
 ## Logout the user.
@@ -2188,15 +2136,12 @@ Parameter | Type | Status | Description
 Note: Auth Required.
 
 Will logout the logged in user and close the session.
-The token is required.
 
 > Example request:
 
 ```bash
 curl -X POST "http://localhost:8000//api/user/logout" \
--H "Accept: application/json" \
-    -d "token"="quia" \
-
+-H "Accept: application/json"
 ```
 
 ```javascript
@@ -2205,9 +2150,6 @@ var settings = {
     "crossDomain": true,
     "url": "http://localhost:8000//api/user/logout",
     "method": "POST",
-    "data": {
-        "token": "quia"
-},
     "headers": {
         "accept": "application/json"
     }
@@ -2222,11 +2164,6 @@ $.ajax(settings).done(function (response) {
 ### HTTP Request
 `POST /api/user/logout`
 
-#### Parameters
-
-Parameter | Type | Status | Description
---------- | ------- | ------- | ------- | -----------
-    token | string |  required  | 
 
 <!-- END_8e2bcf97ca2b0da97a00d74ce5c0dddc -->
 
