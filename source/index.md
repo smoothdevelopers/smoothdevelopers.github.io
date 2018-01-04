@@ -2008,7 +2008,9 @@ This will refresh current logged in users token and return the new token
 
 ```bash
 curl -X POST "http://localhost:8000//api/user/refresh_token" \
--H "Accept: application/json"
+-H "Accept: application/json" \
+    -d "token"="natus" \
+
 ```
 
 ```javascript
@@ -2017,6 +2019,9 @@ var settings = {
     "crossDomain": true,
     "url": "http://localhost:8000//api/user/refresh_token",
     "method": "POST",
+    "data": {
+        "token": "natus"
+},
     "headers": {
         "accept": "application/json"
     }
@@ -2031,6 +2036,11 @@ $.ajax(settings).done(function (response) {
 ### HTTP Request
 `POST /api/user/refresh_token`
 
+#### Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    token | string |  required  | 
 
 <!-- END_1cff6a9e89def167de9d09a13dd2555d -->
 
@@ -2141,7 +2151,9 @@ Will logout the logged in user and close the session.
 
 ```bash
 curl -X POST "http://localhost:8000//api/user/logout" \
--H "Accept: application/json"
+-H "Accept: application/json" \
+    -d "token"="quia" \
+
 ```
 
 ```javascript
@@ -2150,6 +2162,9 @@ var settings = {
     "crossDomain": true,
     "url": "http://localhost:8000//api/user/logout",
     "method": "POST",
+    "data": {
+        "token": "quia"
+},
     "headers": {
         "accept": "application/json"
     }
@@ -2164,6 +2179,11 @@ $.ajax(settings).done(function (response) {
 ### HTTP Request
 `POST /api/user/logout`
 
+#### Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    token | string |  required  | 
 
 <!-- END_8e2bcf97ca2b0da97a00d74ce5c0dddc -->
 
