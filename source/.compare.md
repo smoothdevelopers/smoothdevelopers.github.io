@@ -60,7 +60,7 @@ Returns a public accepted engagement given its id as a parameter.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/engagement/get_one" \
+curl -X POST "http://178.62.100.101//api/engagement/get_one" \
 -H "Accept: application/json" \
     -d "engagement_id"="772121753" \
 
@@ -70,7 +70,7 @@ curl -X POST "http://localhost:8000//api/engagement/get_one" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/engagement/get_one",
+    "url": "http://178.62.100.101//api/engagement/get_one",
     "method": "POST",
     "data": {
         "engagement_id": 772121753
@@ -105,7 +105,7 @@ Return all public accepted engagements in pages with every page having 15 engage
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/engagement/get_paged" \
+curl -X POST "http://178.62.100.101//api/engagement/get_paged" \
 -H "Accept: application/json" \
     -d "page"="519" \
 
@@ -115,7 +115,7 @@ curl -X POST "http://localhost:8000//api/engagement/get_paged" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/engagement/get_paged",
+    "url": "http://178.62.100.101//api/engagement/get_paged",
     "method": "POST",
     "data": {
         "page": 519
@@ -154,13 +154,13 @@ the groom in the engagement.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/engagement/create" \
+curl -X POST "http://178.62.100.101//api/engagement/create" \
 -H "Accept: application/json" \
     -d "surprise_other"="magnam" \
     -d "proposal_plan"="magnam" \
     -d "groom_id"="58" \
     -d "bride_id"="58" \
-    -d "proposal_date"="1982-01-02" \
+    -d "proposal_date"="1982-01-18" \
     -d "culture"="58" \
     -d "proposal_lat"="58" \
     -d "proposal_lng"="58" \
@@ -176,14 +176,14 @@ curl -X POST "http://localhost:8000//api/engagement/create" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/engagement/create",
+    "url": "http://178.62.100.101//api/engagement/create",
     "method": "POST",
     "data": {
         "surprise_other": "magnam",
         "proposal_plan": "magnam",
         "groom_id": 58,
         "bride_id": 58,
-        "proposal_date": "1982-01-02",
+        "proposal_date": "1982-01-18",
         "culture": 58,
         "proposal_lat": 58,
         "proposal_lng": 58,
@@ -237,13 +237,13 @@ Updates this users engagement.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/engagement/update" \
+curl -X POST "http://178.62.100.101//api/engagement/update" \
 -H "Accept: application/json" \
     -d "surprise_other"="perferendis" \
     -d "proposal_plan"="perferendis" \
     -d "groom_id"="6" \
     -d "bride_id"="6" \
-    -d "proposal_date"="1970-08-09" \
+    -d "proposal_date"="1970-08-10" \
     -d "culture"="6" \
     -d "proposal_lat"="6" \
     -d "proposal_lng"="6" \
@@ -259,14 +259,14 @@ curl -X POST "http://localhost:8000//api/engagement/update" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/engagement/update",
+    "url": "http://178.62.100.101//api/engagement/update",
     "method": "POST",
     "data": {
         "surprise_other": "perferendis",
         "proposal_plan": "perferendis",
         "groom_id": 6,
         "bride_id": 6,
-        "proposal_date": "1970-08-09",
+        "proposal_date": "1970-08-10",
         "culture": 6,
         "proposal_lat": 6,
         "proposal_lng": 6,
@@ -320,7 +320,7 @@ Returns the authenticated user's engagement if found.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/engagement/get" \
+curl -X POST "http://178.62.100.101//api/engagement/get" \
 -H "Accept: application/json"
 ```
 
@@ -328,7 +328,7 @@ curl -X POST "http://localhost:8000//api/engagement/get" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/engagement/get",
+    "url": "http://178.62.100.101//api/engagement/get",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -357,7 +357,7 @@ Closes the authenticated user's engagement.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/engagement/close" \
+curl -X POST "http://178.62.100.101//api/engagement/close" \
 -H "Accept: application/json"
 ```
 
@@ -365,7 +365,7 @@ curl -X POST "http://localhost:8000//api/engagement/close" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/engagement/close",
+    "url": "http://178.62.100.101//api/engagement/close",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -396,7 +396,7 @@ able to comment on the engagement.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/engagement/comment/create" \
+curl -X POST "http://178.62.100.101//api/engagement/comment/create" \
 -H "Accept: application/json" \
     -d "engagement_id"="4550437" \
     -d "comment"="vero" \
@@ -407,7 +407,7 @@ curl -X POST "http://localhost:8000//api/engagement/comment/create" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/engagement/comment/create",
+    "url": "http://178.62.100.101//api/engagement/comment/create",
     "method": "POST",
     "data": {
         "engagement_id": 4550437,
@@ -446,7 +446,7 @@ Updates a comment that was previously made by the authenticated user
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/engagement/comment/update" \
+curl -X POST "http://178.62.100.101//api/engagement/comment/update" \
 -H "Accept: application/json" \
     -d "comment_id"="3057061" \
     -d "comment"="facere" \
@@ -457,7 +457,7 @@ curl -X POST "http://localhost:8000//api/engagement/comment/update" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/engagement/comment/update",
+    "url": "http://178.62.100.101//api/engagement/comment/update",
     "method": "POST",
     "data": {
         "comment_id": 3057061,
@@ -497,7 +497,7 @@ view them or the engagement is a public one.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/engagement/comment/get_paged" \
+curl -X POST "http://178.62.100.101//api/engagement/comment/get_paged" \
 -H "Accept: application/json" \
     -d "engagement_id"="2" \
     -d "page"="2" \
@@ -508,7 +508,7 @@ curl -X POST "http://localhost:8000//api/engagement/comment/get_paged" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/engagement/comment/get_paged",
+    "url": "http://178.62.100.101//api/engagement/comment/get_paged",
     "method": "POST",
     "data": {
         "engagement_id": 2,
@@ -547,7 +547,7 @@ Deletes a comment created by the user.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/engagement/comment/delete" \
+curl -X POST "http://178.62.100.101//api/engagement/comment/delete" \
 -H "Accept: application/json"
 ```
 
@@ -555,7 +555,7 @@ curl -X POST "http://localhost:8000//api/engagement/comment/delete" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/engagement/comment/delete",
+    "url": "http://178.62.100.101//api/engagement/comment/delete",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -584,7 +584,7 @@ Creates a like for this engagement by the authenticated user
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/engagement/like/create" \
+curl -X POST "http://178.62.100.101//api/engagement/like/create" \
 -H "Accept: application/json" \
     -d "engagement_id"="1" \
 
@@ -594,7 +594,7 @@ curl -X POST "http://localhost:8000//api/engagement/like/create" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/engagement/like/create",
+    "url": "http://178.62.100.101//api/engagement/like/create",
     "method": "POST",
     "data": {
         "engagement_id": 1
@@ -631,7 +631,7 @@ Removes a like on an engagement by the authenticated user.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/engagement/like/delete" \
+curl -X POST "http://178.62.100.101//api/engagement/like/delete" \
 -H "Accept: application/json"
 ```
 
@@ -639,7 +639,7 @@ curl -X POST "http://localhost:8000//api/engagement/like/delete" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/engagement/like/delete",
+    "url": "http://178.62.100.101//api/engagement/like/delete",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -672,7 +672,7 @@ is an invited user)
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/engagement/photo/save" \
+curl -X POST "http://178.62.100.101//api/engagement/photo/save" \
 -H "Accept: application/json" \
     -d "image"="ea" \
     -d "user_id"="4873" \
@@ -684,7 +684,7 @@ curl -X POST "http://localhost:8000//api/engagement/photo/save" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/engagement/photo/save",
+    "url": "http://178.62.100.101//api/engagement/photo/save",
     "method": "POST",
     "data": {
         "image": "ea",
@@ -726,7 +726,7 @@ must be one of the couples in the engagement.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/engagement/photo/authorize" \
+curl -X POST "http://178.62.100.101//api/engagement/photo/authorize" \
 -H "Accept: application/json" \
     -d "photo_id"="98" \
 
@@ -736,7 +736,7 @@ curl -X POST "http://localhost:8000//api/engagement/photo/authorize" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/engagement/photo/authorize",
+    "url": "http://178.62.100.101//api/engagement/photo/authorize",
     "method": "POST",
     "data": {
         "photo_id": 98
@@ -775,7 +775,7 @@ accessing the images)
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/engagement/photo/authorized" \
+curl -X POST "http://178.62.100.101//api/engagement/photo/authorized" \
 -H "Accept: application/json" \
     -d "engagement_id"="3" \
     -d "user_id"="3" \
@@ -787,7 +787,7 @@ curl -X POST "http://localhost:8000//api/engagement/photo/authorized" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/engagement/photo/authorized",
+    "url": "http://178.62.100.101//api/engagement/photo/authorized",
     "method": "POST",
     "data": {
         "engagement_id": 3,
@@ -830,7 +830,7 @@ accessing them must be one of the couples
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/engagement/photo/unauthorized" \
+curl -X POST "http://178.62.100.101//api/engagement/photo/unauthorized" \
 -H "Accept: application/json" \
     -d "engagement_id"="1" \
     -d "user_id"="1" \
@@ -842,7 +842,7 @@ curl -X POST "http://localhost:8000//api/engagement/photo/unauthorized" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/engagement/photo/unauthorized",
+    "url": "http://178.62.100.101//api/engagement/photo/unauthorized",
     "method": "POST",
     "data": {
         "engagement_id": 1,
@@ -884,7 +884,7 @@ is either the person who posted it or the couples.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/engagement/photo/delete" \
+curl -X POST "http://178.62.100.101//api/engagement/photo/delete" \
 -H "Accept: application/json" \
     -d "photo_id"="97" \
     -d "user_id"="97" \
@@ -895,7 +895,7 @@ curl -X POST "http://localhost:8000//api/engagement/photo/delete" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/engagement/photo/delete",
+    "url": "http://178.62.100.101//api/engagement/photo/delete",
     "method": "POST",
     "data": {
         "photo_id": 97,
@@ -935,7 +935,7 @@ Retrive about us information HTML
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/information/about" \
+curl -X POST "http://178.62.100.101//api/information/about" \
 -H "Accept: application/json"
 ```
 
@@ -943,7 +943,7 @@ curl -X POST "http://localhost:8000//api/information/about" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/information/about",
+    "url": "http://178.62.100.101//api/information/about",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -970,7 +970,7 @@ Retrive terms and conditions information HTML
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/information/terms" \
+curl -X POST "http://178.62.100.101//api/information/terms" \
 -H "Accept: application/json"
 ```
 
@@ -978,7 +978,7 @@ curl -X POST "http://localhost:8000//api/information/terms" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/information/terms",
+    "url": "http://178.62.100.101//api/information/terms",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -1005,7 +1005,7 @@ Retrive privacy policy information HTML
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/information/policy" \
+curl -X POST "http://178.62.100.101//api/information/policy" \
 -H "Accept: application/json"
 ```
 
@@ -1013,7 +1013,7 @@ curl -X POST "http://localhost:8000//api/information/policy" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/information/policy",
+    "url": "http://178.62.100.101//api/information/policy",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -1047,7 +1047,7 @@ Returns an inspiration by given the id.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/inspiration/get_one" \
+curl -X POST "http://178.62.100.101//api/inspiration/get_one" \
 -H "Accept: application/json" \
     -d "inspiration_id"="42" \
 
@@ -1057,7 +1057,7 @@ curl -X POST "http://localhost:8000//api/inspiration/get_one" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/inspiration/get_one",
+    "url": "http://178.62.100.101//api/inspiration/get_one",
     "method": "POST",
     "data": {
         "inspiration_id": 42
@@ -1092,7 +1092,7 @@ Returns a list of inspirations paginated.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/inspiration/get_paged" \
+curl -X POST "http://178.62.100.101//api/inspiration/get_paged" \
 -H "Accept: application/json" \
     -d "page"="731" \
 
@@ -1102,7 +1102,7 @@ curl -X POST "http://localhost:8000//api/inspiration/get_paged" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/inspiration/get_paged",
+    "url": "http://178.62.100.101//api/inspiration/get_paged",
     "method": "POST",
     "data": {
         "page": 731
@@ -1140,7 +1140,7 @@ an engagement.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/inspiration/create" \
+curl -X POST "http://178.62.100.101//api/inspiration/create" \
 -H "Accept: application/json" \
     -d "file"="perspiciatis" \
     -d "description"="perspiciatis" \
@@ -1152,7 +1152,7 @@ curl -X POST "http://localhost:8000//api/inspiration/create" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/inspiration/create",
+    "url": "http://178.62.100.101//api/inspiration/create",
     "method": "POST",
     "data": {
         "file": "perspiciatis",
@@ -1193,7 +1193,7 @@ The user updating the inspiration must be the user that created it.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/inspiration/update" \
+curl -X POST "http://178.62.100.101//api/inspiration/update" \
 -H "Accept: application/json" \
     -d "description"="nobis" \
     -d "inspiration_id"="9879367" \
@@ -1206,7 +1206,7 @@ curl -X POST "http://localhost:8000//api/inspiration/update" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/inspiration/update",
+    "url": "http://178.62.100.101//api/inspiration/update",
     "method": "POST",
     "data": {
         "description": "nobis",
@@ -1249,7 +1249,7 @@ Deletes an inspiration. The user deleting it must have created it.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/inspiration/delete" \
+curl -X POST "http://178.62.100.101//api/inspiration/delete" \
 -H "Accept: application/json" \
     -d "inspiration_id"="1818" \
 
@@ -1259,7 +1259,7 @@ curl -X POST "http://localhost:8000//api/inspiration/delete" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/inspiration/delete",
+    "url": "http://178.62.100.101//api/inspiration/delete",
     "method": "POST",
     "data": {
         "inspiration_id": 1818
@@ -1296,7 +1296,7 @@ Creates a comment by a user on an inspiration.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/inspiration/comment/create" \
+curl -X POST "http://178.62.100.101//api/inspiration/comment/create" \
 -H "Accept: application/json" \
     -d "comment"="corporis" \
     -d "inspiration_id"="291" \
@@ -1307,7 +1307,7 @@ curl -X POST "http://localhost:8000//api/inspiration/comment/create" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/inspiration/comment/create",
+    "url": "http://178.62.100.101//api/inspiration/comment/create",
     "method": "POST",
     "data": {
         "comment": "corporis",
@@ -1347,7 +1347,7 @@ must be the one who made the comment.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/inspiration/comment/update" \
+curl -X POST "http://178.62.100.101//api/inspiration/comment/update" \
 -H "Accept: application/json" \
     -d "comment_id"="1" \
     -d "comment"="inventore" \
@@ -1358,7 +1358,7 @@ curl -X POST "http://localhost:8000//api/inspiration/comment/update" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/inspiration/comment/update",
+    "url": "http://178.62.100.101//api/inspiration/comment/update",
     "method": "POST",
     "data": {
         "comment_id": 1,
@@ -1398,7 +1398,7 @@ the one who made the comment.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/inspiration/comment/delete" \
+curl -X POST "http://178.62.100.101//api/inspiration/comment/delete" \
 -H "Accept: application/json" \
     -d "comment_id"="579277" \
 
@@ -1408,7 +1408,7 @@ curl -X POST "http://localhost:8000//api/inspiration/comment/delete" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/inspiration/comment/delete",
+    "url": "http://178.62.100.101//api/inspiration/comment/delete",
     "method": "POST",
     "data": {
         "comment_id": 579277
@@ -1445,7 +1445,7 @@ Creates a like on an inspiration by a user.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/inspiration/like/create" \
+curl -X POST "http://178.62.100.101//api/inspiration/like/create" \
 -H "Accept: application/json"
 ```
 
@@ -1453,7 +1453,7 @@ curl -X POST "http://localhost:8000//api/inspiration/like/create" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/inspiration/like/create",
+    "url": "http://178.62.100.101//api/inspiration/like/create",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -1483,7 +1483,7 @@ it must be the one who created it.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/inspiration/like/delete" \
+curl -X POST "http://178.62.100.101//api/inspiration/like/delete" \
 -H "Accept: application/json" \
     -d "like_id"="95" \
 
@@ -1493,7 +1493,7 @@ curl -X POST "http://localhost:8000//api/inspiration/like/delete" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/inspiration/like/delete",
+    "url": "http://178.62.100.101//api/inspiration/like/delete",
     "method": "POST",
     "data": {
         "like_id": 95
@@ -1538,7 +1538,7 @@ is created.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/invitation/create" \
+curl -X POST "http://178.62.100.101//api/invitation/create" \
 -H "Accept: application/json" \
     -d "wedding_id"="115831629" \
     -d "slots"="115831629" \
@@ -1552,7 +1552,7 @@ curl -X POST "http://localhost:8000//api/invitation/create" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/invitation/create",
+    "url": "http://178.62.100.101//api/invitation/create",
     "method": "POST",
     "data": {
         "wedding_id": 115831629,
@@ -1599,7 +1599,7 @@ wedding.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/invitation/delete" \
+curl -X POST "http://178.62.100.101//api/invitation/delete" \
 -H "Accept: application/json" \
     -d "invitation_id"="792585501" \
 
@@ -1609,7 +1609,7 @@ curl -X POST "http://localhost:8000//api/invitation/delete" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/invitation/delete",
+    "url": "http://178.62.100.101//api/invitation/delete",
     "method": "POST",
     "data": {
         "invitation_id": 792585501
@@ -1647,7 +1647,7 @@ the invitation as accepted.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/invitation/secure" \
+curl -X POST "http://178.62.100.101//api/invitation/secure" \
 -H "Accept: application/json" \
     -d "token"="60954" \
     -d "secured_slots"="1010721972" \
@@ -1658,7 +1658,7 @@ curl -X POST "http://localhost:8000//api/invitation/secure" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/invitation/secure",
+    "url": "http://178.62.100.101//api/invitation/secure",
     "method": "POST",
     "data": {
         "token": 60954,
@@ -1697,7 +1697,7 @@ Retrieves all the invitations for a particular user.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/invitation/user_invitations" \
+curl -X POST "http://178.62.100.101//api/invitation/user_invitations" \
 -H "Accept: application/json"
 ```
 
@@ -1705,7 +1705,7 @@ curl -X POST "http://localhost:8000//api/invitation/user_invitations" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/invitation/user_invitations",
+    "url": "http://178.62.100.101//api/invitation/user_invitations",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -1735,7 +1735,7 @@ invitations of his/her wedding.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/invitation/wedding_invitations" \
+curl -X POST "http://178.62.100.101//api/invitation/wedding_invitations" \
 -H "Accept: application/json"
 ```
 
@@ -1743,7 +1743,7 @@ curl -X POST "http://localhost:8000//api/invitation/wedding_invitations" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/invitation/wedding_invitations",
+    "url": "http://178.62.100.101//api/invitation/wedding_invitations",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -1765,8 +1765,8 @@ $.ajax(settings).done(function (response) {
 #User
 
 This module will handle all the user manipulation including:
-1. Registration  - with Facebook or phone number.
-2. Authentication - with Facebook ID or phone number.
+1. Registration  - with Facebook or email and password.
+2. Authentication - with Facebook ID or email and password.
 3. User details - access to logged in user&#039;s details.
 4. Assigning tokens - will assign new API access tokens for
     an already logged in user.
@@ -1782,18 +1782,91 @@ header e.g. &#039;Bearer eyJ0eXAiOiJKV1QiL...&#039;
 
 If you try to access an endpoint without the correct Bearer token you will get
 : The token has been blacklisted
-<!-- START_9b706bcb7d78cfacbf8e5e3e7d8afe2b -->
-## Register with phone.
 
-Will register the user with a phone number.
+### Possible Errors
+This shows all the error codes generated from this model
+
+| Error | Description| Code|
+|-------|-------|-------:|
+| Invalid login| User attempts to login with wrong credentials| 100|
+| User not found| Required user not found | 101|
+| User account created using facebook| User attempts to login with email and password but account was registered using Facebook | 102|
+| Email not verified| User attempts login with an unverified email|103|
+<!-- START_96e41001d85ca072dc79e94397b6f2e3 -->
+## Login with email and password.
+
+Will login a user with their email and password and return a token.
+
+#### Note
+If the user attempting to login with email had registered
+by Facebook ID, you will also get a custom error code
+in which case you might want to notify the user that they
+should login through facebook.
+
+Due to the above issue, a user will also be able to create
+a password on an account they registered with Facebook after
+which the user can either login using their email and password
+or proceed with Facebook.
 
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/user/register" \
+curl -X POST "http://178.62.100.101//api/user/login" \
+-H "Accept: application/json" \
+    -d "email"="joanne.muller@example.com" \
+    -d "password"="ut" \
+
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://178.62.100.101//api/user/login",
+    "method": "POST",
+    "data": {
+        "email": "joanne.muller@example.com",
+        "password": "ut"
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST /api/user/login`
+
+#### Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    email | email |  required  | 
+    password | string |  required  | 
+
+<!-- END_96e41001d85ca072dc79e94397b6f2e3 -->
+
+<!-- START_9b706bcb7d78cfacbf8e5e3e7d8afe2b -->
+## Register with email and password.
+
+Will register the user with email and password.
+
+If the user email is already taken, then you will be notified
+of this.
+
+> Example request:
+
+```bash
+curl -X POST "http://178.62.100.101//api/user/register" \
 -H "Accept: application/json" \
     -d "name"="ab" \
-    -d "phone"="ab" \
+    -d "email"="ward.faye@example.com" \
+    -d "password"="ab" \
     -d "gender"="male" \
     -d "profile_pic"="ab" \
 
@@ -1803,11 +1876,12 @@ curl -X POST "http://localhost:8000//api/user/register" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/user/register",
+    "url": "http://178.62.100.101//api/user/register",
     "method": "POST",
     "data": {
         "name": "ab",
-        "phone": "ab",
+        "email": "ward.faye@example.com",
+        "password": "ab",
         "gender": "male",
         "profile_pic": "ab"
 },
@@ -1830,56 +1904,12 @@ $.ajax(settings).done(function (response) {
 Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
     name | string |  required  | Maximum: `255`
-    phone | string |  required  | 
+    email | email |  required  | 
+    password | string |  required  | Minimum: `6`
     gender | string |  required  | `male` or `female`
     profile_pic | image |  optional  | Must be an image (jpeg, png, bmp, gif, or svg)
 
 <!-- END_9b706bcb7d78cfacbf8e5e3e7d8afe2b -->
-
-<!-- START_96e41001d85ca072dc79e94397b6f2e3 -->
-## Login with phone number.
-
-Will login a user with their phone number and return a token.
-
-> Example request:
-
-```bash
-curl -X POST "http://localhost:8000//api/user/login" \
--H "Accept: application/json" \
-    -d "phone"="ut" \
-
-```
-
-```javascript
-var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "http://localhost:8000//api/user/login",
-    "method": "POST",
-    "data": {
-        "phone": "ut"
-},
-    "headers": {
-        "accept": "application/json"
-    }
-}
-
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
-```
-
-
-### HTTP Request
-`POST /api/user/login`
-
-#### Parameters
-
-Parameter | Type | Status | Description
---------- | ------- | ------- | ------- | -----------
-    phone | string |  required  | 
-
-<!-- END_96e41001d85ca072dc79e94397b6f2e3 -->
 
 <!-- START_5185b1c08ff9fc05d72653d65ed7ed67 -->
 ## Login or register with Facebook ID.
@@ -1894,7 +1924,7 @@ will be expected.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/user/login_fb" \
+curl -X POST "http://178.62.100.101//api/user/login_fb" \
 -H "Accept: application/json" \
     -d "fb_id"="sed" \
     -d "name"="sed" \
@@ -1908,7 +1938,7 @@ curl -X POST "http://localhost:8000//api/user/login_fb" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/user/login_fb",
+    "url": "http://178.62.100.101//api/user/login_fb",
     "method": "POST",
     "data": {
         "fb_id": "sed",
@@ -1943,16 +1973,83 @@ Parameter | Type | Status | Description
 
 <!-- END_5185b1c08ff9fc05d72653d65ed7ed67 -->
 
-<!-- START_5b028048ded09ef8d7b75cbb829d70c3 -->
-## Search users by name or phone.
+<!-- START_aa60d5253ab35a1506ade30500aaca62 -->
+## User details.
 
-This will search and return a list of users in pages.
+Get user by their id.
 
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/user/search_paged" \
+curl -X POST "http://178.62.100.101//api/user/get_by_id" \
 -H "Accept: application/json" \
+    -d "id"="357172916" \
+
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://178.62.100.101//api/user/get_by_id",
+    "method": "POST",
+    "data": {
+        "id": 357172916
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST /api/user/get_by_id`
+
+#### Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    id | integer |  required  | Minimum: `0`
+
+<!-- END_aa60d5253ab35a1506ade30500aaca62 -->
+
+<!-- START_5b028048ded09ef8d7b75cbb829d70c3 -->
+## Search users by name, email or phone.
+
+This is will be able to search for a user with phone number,
+email address or their username.
+
+The following tables describes the various options with
+which you can search for users.
+
+### search_by
+This is the field with which to search the users. If you
+leave this out, the search_term will be matched against
+the name, the phone and the email.
+
+### gender
+It is optional to specify the gender of the users you want
+to get.
+
+### page
+This is required for pagination of the results based on a
+count per page that you have to specify.
+
+### count
+This is the count of users you would like to recieve on per page
+basis. The default is 10.
+
+> Example request:
+
+```bash
+curl -X POST "http://178.62.100.101//api/user/search_paged" \
+-H "Accept: application/json" \
+    -d "count"="13" \
     -d "page"="94608" \
     -d "search_term"="dolorum" \
     -d "gender"="female" \
@@ -1964,9 +2061,10 @@ curl -X POST "http://localhost:8000//api/user/search_paged" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/user/search_paged",
+    "url": "http://178.62.100.101//api/user/search_paged",
     "method": "POST",
     "data": {
+        "count": 13,
         "page": 94608,
         "search_term": "dolorum",
         "gender": "female",
@@ -1990,10 +2088,11 @@ $.ajax(settings).done(function (response) {
 
 Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
-    page | integer |  required  | 
+    count | integer |  optional  | Required if the parameters `count` are present. Maximum: `20`
+    page | integer |  optional  | Required if the parameters `count` are present.
     search_term | string |  required  | 
-    gender | string |  required  | `male`, `female` or `both`
-    search_by | string |  required  | `name`, `phone` or `both`
+    gender | string |  optional  | `male` or `female`
+    search_by | string |  optional  | `name`, `phone` or `email`
 
 <!-- END_5b028048ded09ef8d7b75cbb829d70c3 -->
 
@@ -2007,7 +2106,7 @@ This will refresh current logged in users token and return the new token
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/user/refresh_token" \
+curl -X POST "http://178.62.100.101//api/user/refresh_token" \
 -H "Accept: application/json" \
     -d "token"="natus" \
 
@@ -2017,7 +2116,7 @@ curl -X POST "http://localhost:8000//api/user/refresh_token" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/user/refresh_token",
+    "url": "http://178.62.100.101//api/user/refresh_token",
     "method": "POST",
     "data": {
         "token": "natus"
@@ -2044,6 +2143,54 @@ Parameter | Type | Status | Description
 
 <!-- END_1cff6a9e89def167de9d09a13dd2555d -->
 
+<!-- START_12546d595007e56e2715a2d31dbddb91 -->
+## User details.
+
+Get a user either by phone number or email
+
+> Example request:
+
+```bash
+curl -X POST "http://178.62.100.101//api/user/get_by_contact" \
+-H "Accept: application/json" \
+    -d "phone"="eligendi" \
+    -d "email"="eligendi" \
+
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://178.62.100.101//api/user/get_by_contact",
+    "method": "POST",
+    "data": {
+        "phone": "eligendi",
+        "email": "eligendi"
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST /api/user/get_by_contact`
+
+#### Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    phone | string |  optional  | Required if `email` is `null`
+    email | string |  optional  | Required if `phone` is `null`
+
+<!-- END_12546d595007e56e2715a2d31dbddb91 -->
+
 <!-- START_db9b921b7df3edd956a8d31f9550084a -->
 ## User details.
 
@@ -2054,7 +2201,7 @@ Returns all the details of the currently logged in user.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/user/get" \
+curl -X POST "http://178.62.100.101//api/user/get" \
 -H "Accept: application/json"
 ```
 
@@ -2062,7 +2209,7 @@ curl -X POST "http://localhost:8000//api/user/get" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/user/get",
+    "url": "http://178.62.100.101//api/user/get",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -2091,10 +2238,11 @@ This will update the details of an already logged in user.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/user/update" \
+curl -X POST "http://178.62.100.101//api/user/update" \
 -H "Accept: application/json" \
     -d "name"="culpa" \
     -d "gender"="female" \
+    -d "email"="myrtice65@example.net" \
     -d "phone"="culpa" \
     -d "fb_id"="culpa" \
     -d "profile_pic"="culpa" \
@@ -2105,11 +2253,12 @@ curl -X POST "http://localhost:8000//api/user/update" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/user/update",
+    "url": "http://178.62.100.101//api/user/update",
     "method": "POST",
     "data": {
         "name": "culpa",
         "gender": "female",
+        "email": "myrtice65@example.net",
         "phone": "culpa",
         "fb_id": "culpa",
         "profile_pic": "culpa"
@@ -2134,7 +2283,8 @@ Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
     name | string |  required  | Maximum: `255`
     gender | string |  required  | `male` or `female`
-    phone | string |  required  | 
+    email | email |  required  | 
+    phone | string |  optional  | 
     fb_id | string |  optional  | 
     profile_pic | image |  optional  | Must be an image (jpeg, png, bmp, gif, or svg)
 
@@ -2150,7 +2300,7 @@ Will logout the logged in user and close the session.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/user/logout" \
+curl -X POST "http://178.62.100.101//api/user/logout" \
 -H "Accept: application/json" \
     -d "token"="quia" \
 
@@ -2160,7 +2310,7 @@ curl -X POST "http://localhost:8000//api/user/logout" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/user/logout",
+    "url": "http://178.62.100.101//api/user/logout",
     "method": "POST",
     "data": {
         "token": "quia"
@@ -2197,7 +2347,7 @@ This will close the logged in user's account by soft deleting it.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/user/close_account" \
+curl -X POST "http://178.62.100.101//api/user/close_account" \
 -H "Accept: application/json"
 ```
 
@@ -2205,7 +2355,7 @@ curl -X POST "http://localhost:8000//api/user/close_account" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/user/close_account",
+    "url": "http://178.62.100.101//api/user/close_account",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -2235,7 +2385,7 @@ Returns one vendor details, given their id.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/vendor/get_one" \
+curl -X POST "http://178.62.100.101//api/vendor/get_one" \
 -H "Accept: application/json" \
     -d "vendor_id"="7097" \
 
@@ -2245,7 +2395,7 @@ curl -X POST "http://localhost:8000//api/vendor/get_one" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/vendor/get_one",
+    "url": "http://178.62.100.101//api/vendor/get_one",
     "method": "POST",
     "data": {
         "vendor_id": 7097
@@ -2280,7 +2430,7 @@ This returns a list of vendors paginated for a given category.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/vendor/get_paged" \
+curl -X POST "http://178.62.100.101//api/vendor/get_paged" \
 -H "Accept: application/json" \
     -d "category_id"="24839150" \
 
@@ -2290,7 +2440,7 @@ curl -X POST "http://localhost:8000//api/vendor/get_paged" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/vendor/get_paged",
+    "url": "http://178.62.100.101//api/vendor/get_paged",
     "method": "POST",
     "data": {
         "category_id": 24839150
@@ -2325,7 +2475,7 @@ Returns one vendor category details.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/vendor_category/get_one" \
+curl -X POST "http://178.62.100.101//api/vendor_category/get_one" \
 -H "Accept: application/json" \
     -d "category_id"="167" \
 
@@ -2335,7 +2485,7 @@ curl -X POST "http://localhost:8000//api/vendor_category/get_one" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/vendor_category/get_one",
+    "url": "http://178.62.100.101//api/vendor_category/get_one",
     "method": "POST",
     "data": {
         "category_id": 167
@@ -2370,7 +2520,7 @@ This returns the list of all vendors currently available.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/vendor_category/get_paged" \
+curl -X POST "http://178.62.100.101//api/vendor_category/get_paged" \
 -H "Accept: application/json" \
     -d "page"="5499885" \
 
@@ -2380,7 +2530,7 @@ curl -X POST "http://localhost:8000//api/vendor_category/get_paged" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/vendor_category/get_paged",
+    "url": "http://178.62.100.101//api/vendor_category/get_paged",
     "method": "POST",
     "data": {
         "page": 5499885
@@ -2422,7 +2572,7 @@ Returns a public wedding given its id as a parameter.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/wedding/get_one" \
+curl -X POST "http://178.62.100.101//api/wedding/get_one" \
 -H "Accept: application/json" \
     -d "wedding_id"="630827" \
 
@@ -2432,7 +2582,7 @@ curl -X POST "http://localhost:8000//api/wedding/get_one" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/wedding/get_one",
+    "url": "http://178.62.100.101//api/wedding/get_one",
     "method": "POST",
     "data": {
         "wedding_id": 630827
@@ -2467,7 +2617,7 @@ Return all public weddings in pages with every page having 15 weddings.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/wedding/get_paged" \
+curl -X POST "http://178.62.100.101//api/wedding/get_paged" \
 -H "Accept: application/json" \
     -d "page"="51782023" \
 
@@ -2477,7 +2627,7 @@ curl -X POST "http://localhost:8000//api/wedding/get_paged" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/wedding/get_paged",
+    "url": "http://178.62.100.101//api/wedding/get_paged",
     "method": "POST",
     "data": {
         "page": 51782023
@@ -2516,7 +2666,7 @@ the groom in the wedding.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/wedding/create" \
+curl -X POST "http://178.62.100.101//api/wedding/create" \
 -H "Accept: application/json" \
     -d "groom_id"="46398" \
     -d "bride_id"="46398" \
@@ -2537,7 +2687,7 @@ curl -X POST "http://localhost:8000//api/wedding/create" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/wedding/create",
+    "url": "http://178.62.100.101//api/wedding/create",
     "method": "POST",
     "data": {
         "groom_id": 46398,
@@ -2596,7 +2746,7 @@ Updates this users wedding.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/wedding/update" \
+curl -X POST "http://178.62.100.101//api/wedding/update" \
 -H "Accept: application/json" \
     -d "groom_id"="480" \
     -d "bride_id"="480" \
@@ -2617,7 +2767,7 @@ curl -X POST "http://localhost:8000//api/wedding/update" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/wedding/update",
+    "url": "http://178.62.100.101//api/wedding/update",
     "method": "POST",
     "data": {
         "groom_id": 480,
@@ -2676,7 +2826,7 @@ Returns the authenticated user's wedding if found.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/wedding/get" \
+curl -X POST "http://178.62.100.101//api/wedding/get" \
 -H "Accept: application/json"
 ```
 
@@ -2684,7 +2834,7 @@ curl -X POST "http://localhost:8000//api/wedding/get" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/wedding/get",
+    "url": "http://178.62.100.101//api/wedding/get",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -2713,7 +2863,7 @@ Closes the authenticated user's wedding.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/wedding/close" \
+curl -X POST "http://178.62.100.101//api/wedding/close" \
 -H "Accept: application/json"
 ```
 
@@ -2721,7 +2871,7 @@ curl -X POST "http://localhost:8000//api/wedding/close" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/wedding/close",
+    "url": "http://178.62.100.101//api/wedding/close",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -2752,7 +2902,7 @@ able to comment on the wedding.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/wedding/comment/create" \
+curl -X POST "http://178.62.100.101//api/wedding/comment/create" \
 -H "Accept: application/json" \
     -d "wedding_id"="11" \
     -d "comment"="voluptatem" \
@@ -2763,7 +2913,7 @@ curl -X POST "http://localhost:8000//api/wedding/comment/create" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/wedding/comment/create",
+    "url": "http://178.62.100.101//api/wedding/comment/create",
     "method": "POST",
     "data": {
         "wedding_id": 11,
@@ -2802,7 +2952,7 @@ Updates a comment that was previously made by the user
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/wedding/comment/update" \
+curl -X POST "http://178.62.100.101//api/wedding/comment/update" \
 -H "Accept: application/json" \
     -d "wedding_id"="111972470" \
     -d "page"="111972470" \
@@ -2813,7 +2963,7 @@ curl -X POST "http://localhost:8000//api/wedding/comment/update" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/wedding/comment/update",
+    "url": "http://178.62.100.101//api/wedding/comment/update",
     "method": "POST",
     "data": {
         "wedding_id": 111972470,
@@ -2853,7 +3003,7 @@ view them or the wedding is a public one.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/wedding/comment/get_paged" \
+curl -X POST "http://178.62.100.101//api/wedding/comment/get_paged" \
 -H "Accept: application/json"
 ```
 
@@ -2861,7 +3011,7 @@ curl -X POST "http://localhost:8000//api/wedding/comment/get_paged" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/wedding/comment/get_paged",
+    "url": "http://178.62.100.101//api/wedding/comment/get_paged",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -2890,7 +3040,7 @@ Deletes a comment created by the user.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/wedding/comment/delete" \
+curl -X POST "http://178.62.100.101//api/wedding/comment/delete" \
 -H "Accept: application/json"
 ```
 
@@ -2898,7 +3048,7 @@ curl -X POST "http://localhost:8000//api/wedding/comment/delete" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/wedding/comment/delete",
+    "url": "http://178.62.100.101//api/wedding/comment/delete",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -2927,7 +3077,7 @@ Creates a like for this wedding by the authenticated user
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/wedding/like/create" \
+curl -X POST "http://178.62.100.101//api/wedding/like/create" \
 -H "Accept: application/json" \
     -d "wedding_id"="901" \
 
@@ -2937,7 +3087,7 @@ curl -X POST "http://localhost:8000//api/wedding/like/create" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/wedding/like/create",
+    "url": "http://178.62.100.101//api/wedding/like/create",
     "method": "POST",
     "data": {
         "wedding_id": 901
@@ -2974,7 +3124,7 @@ Removes a like on an wedding by the authentcated user.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/wedding/like/delete" \
+curl -X POST "http://178.62.100.101//api/wedding/like/delete" \
 -H "Accept: application/json"
 ```
 
@@ -2982,7 +3132,7 @@ curl -X POST "http://localhost:8000//api/wedding/like/delete" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/wedding/like/delete",
+    "url": "http://178.62.100.101//api/wedding/like/delete",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -3015,7 +3165,7 @@ is an invited user)
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/wedding/photo/save" \
+curl -X POST "http://178.62.100.101//api/wedding/photo/save" \
 -H "Accept: application/json" \
     -d "image"="rerum" \
     -d "user_id"="823006276" \
@@ -3027,7 +3177,7 @@ curl -X POST "http://localhost:8000//api/wedding/photo/save" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/wedding/photo/save",
+    "url": "http://178.62.100.101//api/wedding/photo/save",
     "method": "POST",
     "data": {
         "image": "rerum",
@@ -3069,7 +3219,7 @@ must be one of the couples in the wedding.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/wedding/photo/authorize" \
+curl -X POST "http://178.62.100.101//api/wedding/photo/authorize" \
 -H "Accept: application/json" \
     -d "photo_id"="74099" \
 
@@ -3079,7 +3229,7 @@ curl -X POST "http://localhost:8000//api/wedding/photo/authorize" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/wedding/photo/authorize",
+    "url": "http://178.62.100.101//api/wedding/photo/authorize",
     "method": "POST",
     "data": {
         "photo_id": 74099
@@ -3117,7 +3267,7 @@ is public or if the user has permission.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/wedding/photo/authorized" \
+curl -X POST "http://178.62.100.101//api/wedding/photo/authorized" \
 -H "Accept: application/json" \
     -d "wedding_id"="422" \
     -d "user_id"="422" \
@@ -3129,7 +3279,7 @@ curl -X POST "http://localhost:8000//api/wedding/photo/authorized" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/wedding/photo/authorized",
+    "url": "http://178.62.100.101//api/wedding/photo/authorized",
     "method": "POST",
     "data": {
         "wedding_id": 422,
@@ -3172,7 +3322,7 @@ accessing them must be one of the couples
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/wedding/photo/unauthorized" \
+curl -X POST "http://178.62.100.101//api/wedding/photo/unauthorized" \
 -H "Accept: application/json" \
     -d "wedding_id"="8586956" \
     -d "user_id"="8586956" \
@@ -3184,7 +3334,7 @@ curl -X POST "http://localhost:8000//api/wedding/photo/unauthorized" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/wedding/photo/unauthorized",
+    "url": "http://178.62.100.101//api/wedding/photo/unauthorized",
     "method": "POST",
     "data": {
         "wedding_id": 8586956,
@@ -3226,7 +3376,7 @@ is either the person who posted it or the couples.
 > Example request:
 
 ```bash
-curl -X POST "http://localhost:8000//api/wedding/photo/delete" \
+curl -X POST "http://178.62.100.101//api/wedding/photo/delete" \
 -H "Accept: application/json" \
     -d "photo_id"="92026811" \
     -d "user_id"="92026811" \
@@ -3237,7 +3387,7 @@ curl -X POST "http://localhost:8000//api/wedding/photo/delete" \
 var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:8000//api/wedding/photo/delete",
+    "url": "http://178.62.100.101//api/wedding/photo/delete",
     "method": "POST",
     "data": {
         "photo_id": 92026811,
