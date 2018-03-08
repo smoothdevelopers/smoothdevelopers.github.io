@@ -135,14 +135,14 @@ the user involved in the engagement to accept it or reject it.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/engagement/get_one" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/engagement/get_one" \
 -H "Accept: application/json" \
     -d "engagement_id"="772121753" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/engagement/get_one",
+    "url": "http://localhost:8000//api/engagement/get_one",
     "method": "POST",
     "data": {
         "engagement_id": 772121753
@@ -182,14 +182,14 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/engagement/get_paged" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/engagement/get_paged" \
 -H "Accept: application/json" \
     -d "page"="519" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/engagement/get_paged",
+    "url": "http://localhost:8000//api/engagement/get_paged",
     "method": "POST",
     "data": {
         "page": 519
@@ -232,7 +232,7 @@ the groom in the engagement.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/engagement/create" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/engagement/create" \
 -H "Accept: application/json" \
     -d "surprise_other"="magnam" \
     -d "proposal_plan"="magnam" \
@@ -251,7 +251,7 @@ the groom in the engagement.</p>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/engagement/create",
+    "url": "http://localhost:8000//api/engagement/create",
     "method": "POST",
     "data": {
         "surprise_other": "magnam",
@@ -369,7 +369,7 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/engagement/update" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/engagement/update" \
 -H "Accept: application/json" \
     -d "surprise_other"="perferendis" \
     -d "proposal_plan"="perferendis" \
@@ -388,7 +388,7 @@ $.ajax(settings).done(function (response) {
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/engagement/update",
+    "url": "http://localhost:8000//api/engagement/update",
     "method": "POST",
     "data": {
         "surprise_other": "perferendis",
@@ -506,12 +506,12 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/engagement/get" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/engagement/get" \
 -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/engagement/get",
+    "url": "http://localhost:8000//api/engagement/get",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -531,12 +531,12 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/engagement/close" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/engagement/close" \
 -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/engagement/close",
+    "url": "http://localhost:8000//api/engagement/close",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -558,7 +558,7 @@ able to comment on the engagement.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/engagement/comment/create" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/engagement/comment/create" \
 -H "Accept: application/json" \
     -d "engagement_id"="4550437" \
     -d "comment"="vero" \
@@ -566,7 +566,7 @@ able to comment on the engagement.</p>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/engagement/comment/create",
+    "url": "http://localhost:8000//api/engagement/comment/create",
     "method": "POST",
     "data": {
         "engagement_id": 4550437,
@@ -613,7 +613,7 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/engagement/comment/update" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/engagement/comment/update" \
 -H "Accept: application/json" \
     -d "comment_id"="3057061" \
     -d "comment"="facere" \
@@ -621,7 +621,7 @@ $.ajax(settings).done(function (response) {
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/engagement/comment/update",
+    "url": "http://localhost:8000//api/engagement/comment/update",
     "method": "POST",
     "data": {
         "comment_id": 3057061,
@@ -669,7 +669,7 @@ view them or the engagement is a public one.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/engagement/comment/get_paged" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/engagement/comment/get_paged" \
 -H "Accept: application/json" \
     -d "engagement_id"="2" \
     -d "page"="2" \
@@ -677,7 +677,7 @@ view them or the engagement is a public one.</p>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/engagement/comment/get_paged",
+    "url": "http://localhost:8000//api/engagement/comment/get_paged",
     "method": "POST",
     "data": {
         "engagement_id": 2,
@@ -724,12 +724,12 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/engagement/comment/delete" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/engagement/comment/delete" \
 -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/engagement/comment/delete",
+    "url": "http://localhost:8000//api/engagement/comment/delete",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -749,14 +749,14 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/engagement/like/create" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/engagement/like/create" \
 -H "Accept: application/json" \
     -d "engagement_id"="1" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/engagement/like/create",
+    "url": "http://localhost:8000//api/engagement/like/create",
     "method": "POST",
     "data": {
         "engagement_id": 1
@@ -797,12 +797,12 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/engagement/like/delete" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/engagement/like/delete" \
 -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/engagement/like/delete",
+    "url": "http://localhost:8000//api/engagement/like/delete",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -826,7 +826,7 @@ is an invited user)</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/engagement/photo/save" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/engagement/photo/save" \
 -H "Accept: application/json" \
     -d "image"="ea" \
     -d "user_id"="4873" \
@@ -835,7 +835,7 @@ is an invited user)</p>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/engagement/photo/save",
+    "url": "http://localhost:8000//api/engagement/photo/save",
     "method": "POST",
     "data": {
         "image": "ea",
@@ -890,14 +890,14 @@ must be one of the couples in the engagement.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/engagement/photo/authorize" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/engagement/photo/authorize" \
 -H "Accept: application/json" \
     -d "photo_id"="98" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/engagement/photo/authorize",
+    "url": "http://localhost:8000//api/engagement/photo/authorize",
     "method": "POST",
     "data": {
         "photo_id": 98
@@ -940,7 +940,7 @@ accessing the images)</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/engagement/photo/authorized" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/engagement/photo/authorized" \
 -H "Accept: application/json" \
     -d "engagement_id"="3" \
     -d "user_id"="3" \
@@ -949,7 +949,7 @@ accessing the images)</p>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/engagement/photo/authorized",
+    "url": "http://localhost:8000//api/engagement/photo/authorized",
     "method": "POST",
     "data": {
         "engagement_id": 3,
@@ -1004,7 +1004,7 @@ accessing them must be one of the couples</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/engagement/photo/unauthorized" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/engagement/photo/unauthorized" \
 -H "Accept: application/json" \
     -d "engagement_id"="1" \
     -d "user_id"="1" \
@@ -1013,7 +1013,7 @@ accessing them must be one of the couples</p>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/engagement/photo/unauthorized",
+    "url": "http://localhost:8000//api/engagement/photo/unauthorized",
     "method": "POST",
     "data": {
         "engagement_id": 1,
@@ -1067,7 +1067,7 @@ is either the person who posted it or the couples.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/engagement/photo/delete" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/engagement/photo/delete" \
 -H "Accept: application/json" \
     -d "photo_id"="97" \
     -d "user_id"="97" \
@@ -1075,7 +1075,7 @@ is either the person who posted it or the couples.</p>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/engagement/photo/delete",
+    "url": "http://localhost:8000//api/engagement/photo/delete",
     "method": "POST",
     "data": {
         "photo_id": 97,
@@ -1123,12 +1123,12 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/information/about" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/information/about" \
 -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/information/about",
+    "url": "http://localhost:8000//api/information/about",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -1147,12 +1147,12 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/information/terms" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/information/terms" \
 -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/information/terms",
+    "url": "http://localhost:8000//api/information/terms",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -1171,12 +1171,12 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/information/policy" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/information/policy" \
 -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/information/policy",
+    "url": "http://localhost:8000//api/information/policy",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -1200,14 +1200,14 @@ user with a wedding or engagement.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/inspiration/get_one" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/inspiration/get_one" \
 -H "Accept: application/json" \
     -d "inspiration_id"="42" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/inspiration/get_one",
+    "url": "http://localhost:8000//api/inspiration/get_one",
     "method": "POST",
     "data": {
         "inspiration_id": 42
@@ -1247,14 +1247,14 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/inspiration/get_paged" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/inspiration/get_paged" \
 -H "Accept: application/json" \
     -d "page"="731" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/inspiration/get_paged",
+    "url": "http://localhost:8000//api/inspiration/get_paged",
     "method": "POST",
     "data": {
         "page": 731
@@ -1296,7 +1296,7 @@ an engagement.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/inspiration/create" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/inspiration/create" \
 -H "Accept: application/json" \
     -d "file"="perspiciatis" \
     -d "description"="perspiciatis" \
@@ -1305,7 +1305,7 @@ an engagement.</p>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/inspiration/create",
+    "url": "http://localhost:8000//api/inspiration/create",
     "method": "POST",
     "data": {
         "file": "perspiciatis",
@@ -1360,7 +1360,7 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/inspiration/update" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/inspiration/update" \
 -H "Accept: application/json" \
     -d "description"="nobis" \
     -d "inspiration_id"="9879367" \
@@ -1370,7 +1370,7 @@ $.ajax(settings).done(function (response) {
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/inspiration/update",
+    "url": "http://localhost:8000//api/inspiration/update",
     "method": "POST",
     "data": {
         "description": "nobis",
@@ -1431,14 +1431,14 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/inspiration/delete" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/inspiration/delete" \
 -H "Accept: application/json" \
     -d "inspiration_id"="1818" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/inspiration/delete",
+    "url": "http://localhost:8000//api/inspiration/delete",
     "method": "POST",
     "data": {
         "inspiration_id": 1818
@@ -1479,7 +1479,7 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/inspiration/comment/create" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/inspiration/comment/create" \
 -H "Accept: application/json" \
     -d "comment"="corporis" \
     -d "inspiration_id"="291" \
@@ -1487,7 +1487,7 @@ $.ajax(settings).done(function (response) {
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/inspiration/comment/create",
+    "url": "http://localhost:8000//api/inspiration/comment/create",
     "method": "POST",
     "data": {
         "comment": "corporis",
@@ -1535,7 +1535,7 @@ must be the one who made the comment.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/inspiration/comment/update" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/inspiration/comment/update" \
 -H "Accept: application/json" \
     -d "comment_id"="1" \
     -d "comment"="inventore" \
@@ -1543,7 +1543,7 @@ must be the one who made the comment.</p>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/inspiration/comment/update",
+    "url": "http://localhost:8000//api/inspiration/comment/update",
     "method": "POST",
     "data": {
         "comment_id": 1,
@@ -1591,14 +1591,14 @@ the one who made the comment.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/inspiration/comment/delete" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/inspiration/comment/delete" \
 -H "Accept: application/json" \
     -d "comment_id"="579277" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/inspiration/comment/delete",
+    "url": "http://localhost:8000//api/inspiration/comment/delete",
     "method": "POST",
     "data": {
         "comment_id": 579277
@@ -1639,12 +1639,12 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/inspiration/like/create" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/inspiration/like/create" \
 -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/inspiration/like/create",
+    "url": "http://localhost:8000//api/inspiration/like/create",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -1665,14 +1665,14 @@ it must be the one who created it.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/inspiration/like/delete" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/inspiration/like/delete" \
 -H "Accept: application/json" \
     -d "like_id"="95" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/inspiration/like/delete",
+    "url": "http://localhost:8000//api/inspiration/like/delete",
     "method": "POST",
     "data": {
         "like_id": 95
@@ -1719,7 +1719,7 @@ is created.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/invitation/create" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/invitation/create" \
 -H "Accept: application/json" \
     -d "wedding_id"="115831629" \
     -d "slots"="115831629" \
@@ -1730,7 +1730,7 @@ is created.</p>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/invitation/create",
+    "url": "http://localhost:8000//api/invitation/create",
     "method": "POST",
     "data": {
         "wedding_id": 115831629,
@@ -1799,14 +1799,14 @@ wedding.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/invitation/delete" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/invitation/delete" \
 -H "Accept: application/json" \
     -d "invitation_id"="792585501" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/invitation/delete",
+    "url": "http://localhost:8000//api/invitation/delete",
     "method": "POST",
     "data": {
         "invitation_id": 792585501
@@ -1848,7 +1848,7 @@ the invitation as accepted.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/invitation/secure" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/invitation/secure" \
 -H "Accept: application/json" \
     -d "token"="60954" \
     -d "secured_slots"="1010721972" \
@@ -1856,7 +1856,7 @@ the invitation as accepted.</p>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/invitation/secure",
+    "url": "http://localhost:8000//api/invitation/secure",
     "method": "POST",
     "data": {
         "token": 60954,
@@ -1904,12 +1904,12 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/invitation/user_invitations" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/invitation/user_invitations" \
 -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/invitation/user_invitations",
+    "url": "http://localhost:8000//api/invitation/user_invitations",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -1930,12 +1930,12 @@ invitations of his/her wedding.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/invitation/wedding_invitations" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/invitation/wedding_invitations" \
 -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/invitation/wedding_invitations",
+    "url": "http://localhost:8000//api/invitation/wedding_invitations",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -1972,31 +1972,30 @@ header e.g. &#039;Bearer eyJ0eXAiOiJKV1QiL...&#039;</p>
 <table>
 <thead>
 <tr>
-<th>Error</th>
-<th>Description</th>
-<th style="text-align: right;">Code</th>
+<th>Code</th>
+<th style="text-align: right;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Invalid login</td>
-<td>User attempts to login with wrong credentials</td>
-<td style="text-align: right;">100</td>
+<td>100</td>
+<td style="text-align: right;">Invalid login</td>
 </tr>
 <tr>
-<td>User not found</td>
-<td>Required user not found</td>
-<td style="text-align: right;">101</td>
+<td>101</td>
+<td style="text-align: right;">Required user not found</td>
 </tr>
 <tr>
-<td>User account created using facebook</td>
-<td>User attempts to login with email and password but account was registered using Facebook</td>
-<td style="text-align: right;">102</td>
+<td>102</td>
+<td style="text-align: right;">User account created using Facebook</td>
 </tr>
 <tr>
-<td>Email not verified</td>
-<td>User attempts login with an unverified email</td>
-<td style="text-align: right;">103</td>
+<td>103</td>
+<td style="text-align: right;">Email not verified</td>
+</tr>
+<tr>
+<td>104</td>
+<td style="text-align: right;">Facebook ID not found</td>
 </tr>
 </tbody>
 </table>
@@ -2015,7 +2014,7 @@ or proceed with Facebook.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/user/login" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/user/login" \
 -H "Accept: application/json" \
     -d "email"="joanne.muller@example.com" \
     -d "password"="ut" \
@@ -2023,7 +2022,7 @@ or proceed with Facebook.</p>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/user/login",
+    "url": "http://localhost:8000//api/user/login",
     "method": "POST",
     "data": {
         "email": "joanne.muller@example.com",
@@ -2071,24 +2070,26 @@ of this.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/user/register" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/user/register" \
 -H "Accept: application/json" \
     -d "name"="ab" \
     -d "email"="ward.faye@example.com" \
     -d "password"="ab" \
     -d "gender"="male" \
+    -d "fb_id"="ab" \
     -d "profile_pic"="ab" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/user/register",
+    "url": "http://localhost:8000//api/user/register",
     "method": "POST",
     "data": {
         "name": "ab",
         "email": "ward.faye@example.com",
         "password": "ab",
         "gender": "male",
+        "fb_id": "ab",
         "profile_pic": "ab"
 },
     "headers": {
@@ -2136,6 +2137,11 @@ $.ajax(settings).done(function (response) {
 <td><code>male</code> or <code>female</code></td>
 </tr>
 <tr>
+<td>fb_id</td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
 <td>profile_pic</td>
 <td>image</td>
 <td>optional</td>
@@ -2154,23 +2160,25 @@ will be expected.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/user/login_fb" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/user/login_fb" \
 -H "Accept: application/json" \
     -d "fb_id"="sed" \
     -d "name"="sed" \
     -d "phone"="sed" \
+    -d "email"="hand.micaela@example.com" \
     -d "gender"="male" \
     -d "profile_pic"="sed" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/user/login_fb",
+    "url": "http://localhost:8000//api/user/login_fb",
     "method": "POST",
     "data": {
         "fb_id": "sed",
         "name": "sed",
         "phone": "sed",
+        "email": "hand.micaela@example.com",
         "gender": "male",
         "profile_pic": "sed"
 },
@@ -2211,6 +2219,11 @@ $.ajax(settings).done(function (response) {
 <td>optional</td>
 </tr>
 <tr>
+<td>email</td>
+<td>email</td>
+<td>optional</td>
+</tr>
+<tr>
 <td>gender</td>
 <td>string</td>
 <td>optional</td>
@@ -2231,14 +2244,14 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/user/get_by_id" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/user/get_by_id" \
 -H "Accept: application/json" \
     -d "id"="357172916" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/user/get_by_id",
+    "url": "http://localhost:8000//api/user/get_by_id",
     "method": "POST",
     "data": {
         "id": 357172916
@@ -2295,7 +2308,7 @@ basis. The default is 10.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/user/search_paged" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/user/search_paged" \
 -H "Accept: application/json" \
     -d "count"="13" \
     -d "page"="94608" \
@@ -2306,7 +2319,7 @@ basis. The default is 10.</p>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/user/search_paged",
+    "url": "http://localhost:8000//api/user/search_paged",
     "method": "POST",
     "data": {
         "count": 13,
@@ -2375,14 +2388,14 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/user/refresh_token" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/user/refresh_token" \
 -H "Accept: application/json" \
     -d "token"="natus" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/user/refresh_token",
+    "url": "http://localhost:8000//api/user/refresh_token",
     "method": "POST",
     "data": {
         "token": "natus"
@@ -2422,7 +2435,7 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/user/get_by_contact" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/user/get_by_contact" \
 -H "Accept: application/json" \
     -d "phone"="eligendi" \
     -d "email"="eligendi" \
@@ -2430,7 +2443,7 @@ $.ajax(settings).done(function (response) {
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/user/get_by_contact",
+    "url": "http://localhost:8000//api/user/get_by_contact",
     "method": "POST",
     "data": {
         "phone": "eligendi",
@@ -2479,12 +2492,12 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/user/get" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/user/get" \
 -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/user/get",
+    "url": "http://localhost:8000//api/user/get",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -2504,7 +2517,7 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/user/update" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/user/update" \
 -H "Accept: application/json" \
     -d "name"="culpa" \
     -d "gender"="female" \
@@ -2516,7 +2529,7 @@ $.ajax(settings).done(function (response) {
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/user/update",
+    "url": "http://localhost:8000//api/user/update",
     "method": "POST",
     "data": {
         "name": "culpa",
@@ -2590,14 +2603,14 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/user/logout" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/user/logout" \
 -H "Accept: application/json" \
     -d "token"="quia" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/user/logout",
+    "url": "http://localhost:8000//api/user/logout",
     "method": "POST",
     "data": {
         "token": "quia"
@@ -2638,12 +2651,12 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/user/close_account" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/user/close_account" \
 -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/user/close_account",
+    "url": "http://localhost:8000//api/user/close_account",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -2664,14 +2677,14 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/vendor/get_one" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/vendor/get_one" \
 -H "Accept: application/json" \
     -d "vendor_id"="7097" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/vendor/get_one",
+    "url": "http://localhost:8000//api/vendor/get_one",
     "method": "POST",
     "data": {
         "vendor_id": 7097
@@ -2711,14 +2724,14 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/vendor/get_paged" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/vendor/get_paged" \
 -H "Accept: application/json" \
     -d "category_id"="24839150" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/vendor/get_paged",
+    "url": "http://localhost:8000//api/vendor/get_paged",
     "method": "POST",
     "data": {
         "category_id": 24839150
@@ -2758,14 +2771,14 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/vendor_category/get_one" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/vendor_category/get_one" \
 -H "Accept: application/json" \
     -d "category_id"="167" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/vendor_category/get_one",
+    "url": "http://localhost:8000//api/vendor_category/get_one",
     "method": "POST",
     "data": {
         "category_id": 167
@@ -2805,14 +2818,14 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/vendor_category/get_paged" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/vendor_category/get_paged" \
 -H "Accept: application/json" \
     -d "page"="5499885" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/vendor_category/get_paged",
+    "url": "http://localhost:8000//api/vendor_category/get_paged",
     "method": "POST",
     "data": {
         "page": 5499885
@@ -2857,14 +2870,14 @@ these two have to have created an account with us.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/wedding/get_one" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/wedding/get_one" \
 -H "Accept: application/json" \
     -d "wedding_id"="630827" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/wedding/get_one",
+    "url": "http://localhost:8000//api/wedding/get_one",
     "method": "POST",
     "data": {
         "wedding_id": 630827
@@ -2904,14 +2917,14 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/wedding/get_paged" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/wedding/get_paged" \
 -H "Accept: application/json" \
     -d "page"="51782023" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/wedding/get_paged",
+    "url": "http://localhost:8000//api/wedding/get_paged",
     "method": "POST",
     "data": {
         "page": 51782023
@@ -2954,7 +2967,7 @@ the groom in the wedding.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/wedding/create" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/wedding/create" \
 -H "Accept: application/json" \
     -d "groom_id"="46398" \
     -d "bride_id"="46398" \
@@ -2972,7 +2985,7 @@ the groom in the wedding.</p>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/wedding/create",
+    "url": "http://localhost:8000//api/wedding/create",
     "method": "POST",
     "data": {
         "groom_id": 46398,
@@ -3084,7 +3097,7 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/wedding/update" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/wedding/update" \
 -H "Accept: application/json" \
     -d "groom_id"="480" \
     -d "bride_id"="480" \
@@ -3102,7 +3115,7 @@ $.ajax(settings).done(function (response) {
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/wedding/update",
+    "url": "http://localhost:8000//api/wedding/update",
     "method": "POST",
     "data": {
         "groom_id": 480,
@@ -3214,12 +3227,12 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/wedding/get" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/wedding/get" \
 -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/wedding/get",
+    "url": "http://localhost:8000//api/wedding/get",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -3239,12 +3252,12 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/wedding/close" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/wedding/close" \
 -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/wedding/close",
+    "url": "http://localhost:8000//api/wedding/close",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -3266,7 +3279,7 @@ able to comment on the wedding.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/wedding/comment/create" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/wedding/comment/create" \
 -H "Accept: application/json" \
     -d "wedding_id"="11" \
     -d "comment"="voluptatem" \
@@ -3274,7 +3287,7 @@ able to comment on the wedding.</p>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/wedding/comment/create",
+    "url": "http://localhost:8000//api/wedding/comment/create",
     "method": "POST",
     "data": {
         "wedding_id": 11,
@@ -3321,7 +3334,7 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/wedding/comment/update" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/wedding/comment/update" \
 -H "Accept: application/json" \
     -d "wedding_id"="111972470" \
     -d "page"="111972470" \
@@ -3329,7 +3342,7 @@ $.ajax(settings).done(function (response) {
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/wedding/comment/update",
+    "url": "http://localhost:8000//api/wedding/comment/update",
     "method": "POST",
     "data": {
         "wedding_id": 111972470,
@@ -3377,12 +3390,12 @@ view them or the wedding is a public one.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/wedding/comment/get_paged" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/wedding/comment/get_paged" \
 -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/wedding/comment/get_paged",
+    "url": "http://localhost:8000//api/wedding/comment/get_paged",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -3402,12 +3415,12 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/wedding/comment/delete" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/wedding/comment/delete" \
 -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/wedding/comment/delete",
+    "url": "http://localhost:8000//api/wedding/comment/delete",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -3427,14 +3440,14 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/wedding/like/create" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/wedding/like/create" \
 -H "Accept: application/json" \
     -d "wedding_id"="901" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/wedding/like/create",
+    "url": "http://localhost:8000//api/wedding/like/create",
     "method": "POST",
     "data": {
         "wedding_id": 901
@@ -3475,12 +3488,12 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/wedding/like/delete" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/wedding/like/delete" \
 -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/wedding/like/delete",
+    "url": "http://localhost:8000//api/wedding/like/delete",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -3504,7 +3517,7 @@ is an invited user)</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/wedding/photo/save" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/wedding/photo/save" \
 -H "Accept: application/json" \
     -d "image"="rerum" \
     -d "user_id"="823006276" \
@@ -3513,7 +3526,7 @@ is an invited user)</p>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/wedding/photo/save",
+    "url": "http://localhost:8000//api/wedding/photo/save",
     "method": "POST",
     "data": {
         "image": "rerum",
@@ -3568,14 +3581,14 @@ must be one of the couples in the wedding.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/wedding/photo/authorize" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/wedding/photo/authorize" \
 -H "Accept: application/json" \
     -d "photo_id"="74099" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/wedding/photo/authorize",
+    "url": "http://localhost:8000//api/wedding/photo/authorize",
     "method": "POST",
     "data": {
         "photo_id": 74099
@@ -3617,7 +3630,7 @@ is public or if the user has permission.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/wedding/photo/authorized" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/wedding/photo/authorized" \
 -H "Accept: application/json" \
     -d "wedding_id"="422" \
     -d "user_id"="422" \
@@ -3626,7 +3639,7 @@ is public or if the user has permission.</p>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/wedding/photo/authorized",
+    "url": "http://localhost:8000//api/wedding/photo/authorized",
     "method": "POST",
     "data": {
         "wedding_id": 422,
@@ -3681,7 +3694,7 @@ accessing them must be one of the couples</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/wedding/photo/unauthorized" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/wedding/photo/unauthorized" \
 -H "Accept: application/json" \
     -d "wedding_id"="8586956" \
     -d "user_id"="8586956" \
@@ -3690,7 +3703,7 @@ accessing them must be one of the couples</p>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/wedding/photo/unauthorized",
+    "url": "http://localhost:8000//api/wedding/photo/unauthorized",
     "method": "POST",
     "data": {
         "wedding_id": 8586956,
@@ -3744,7 +3757,7 @@ is either the person who posted it or the couples.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://178.62.100.101//api/wedding/photo/delete" \
+<pre><code class="language-bash">curl -X POST "http://localhost:8000//api/wedding/photo/delete" \
 -H "Accept: application/json" \
     -d "photo_id"="92026811" \
     -d "user_id"="92026811" \
@@ -3752,7 +3765,7 @@ is either the person who posted it or the couples.</p>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://178.62.100.101//api/wedding/photo/delete",
+    "url": "http://localhost:8000//api/wedding/photo/delete",
     "method": "POST",
     "data": {
         "photo_id": 92026811,
